@@ -65,6 +65,10 @@ Available soon as a Chrome and Firefox extension.
 
 <h3>Play</h3>
 * play *[song title]* by *[artist name (optional)]* on *[web music client (optional)]*
+* play *[game title]* (steam gameid protocol)
+
+<h3>Post</h3>
+* post *[text item]* on *[reddit || imgur || tumblr ]*
 
 <h3>Watch</h3>
 * watch *[video or movie title]*
