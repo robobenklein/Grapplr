@@ -1,0 +1,59 @@
+html {
+    height: 125px;
+    width: 275px;
+    padding: 30px;
+    transition: all 1s ease;
+}
+body {
+    background-color: #fcfcfc;
+    font-family: 'Raleway', sans-serif;
+}
+h1 {
+    font-size: 10pt;
+}
+p{
+    opacity: 1;
+    float: left;
+    margin: 0;
+    padding: 0;
+    font-size: 9pt;
+    color: #aaa;
+    transition: all .5s ease;
+    width: 300px;
+}
+button {
+    margin-top: -15px;
+    background: none;
+    border: 0;
+    float: right;
+    opacity: 0;
+    height: 0px;
+    position: absolute;
+    margin-left: 275px;
+    background-image: url(../images/extension/go.png);
+    background-repeat: no-repeat;
+}
+button:active {
+    background-image: url(../images/extension/go1.png);
+}
+button:focus {
+    outline: none;
+}
+input.form {
+    font-family: 'Raleway', sans-serif;
+    padding: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
+    font-size: 15pt;
+    border: 0px solid;
+    background-color: #fcfcfc;
+    display: inline-block;
+    width: 250px;
+    font-weight: 100;
+    border-bottom: 1px solid #fff;
+    float: left;
+}
+input:focus {
+    outline:none;
+    border-bottom: 2px solid #aaa;
+}
