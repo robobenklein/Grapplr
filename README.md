@@ -70,5 +70,8 @@ Available soon as a Chrome and Firefox extension.
 <h3>Post</h3>
 * post *[text item]* on *[reddit || imgur || tumblr ]*
 
+<h3>Upload</h3>
+* upload (No further query. displays upload UI)
+
 <h3>Watch</h3>
 * watch *[video or movie title]*
