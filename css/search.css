@@ -1,11 +1,20 @@
+@keyframes fade {
+    from {opacity: 0}
+    to {opacity: 1}
+}
 @keyframes play {
    100% { background-position: -5520px; }
 }
 @keyframes listen {
    100% { background-position: -2160px; }
 }
+html {
+    animation: fade 1s;
+    min-height: 600px;
+    min-width: 706px;
+}
 body{
-    background: url('../images/default_wallpaper/yellow.jpg');
+    background: url('../images/bg4.jpg');
     background-position: center;
     background-color: #fff;
     -webkit-background-size: cover;
@@ -17,16 +26,23 @@ body{
     color: #fff;
     font-family: 'Raleway', sans-serif;
 }
+b {
+    margin-left: 10px;
+}
 ::selection { background: rgba(0,0,0,1); color: #fff;}
 .left_tools {
     overflow: hidden;
     float: left;
-    width: 50%;
+    width: 33.33333333333333%;
 }
 .right_tools {
     overflow: hidden;
     float: right;
-    width: 50%;
+    width: 33.33333333333333%;
+}
+.center_tools {
+    width: 242px;
+    margin: 0 auto;
 }
 .right_tools button {
     float: right;
@@ -43,12 +59,11 @@ body{
     z-index: -99;
 }
 .logo{
-    padding: 10px;
-    padding-right: 40px;
+    border-right: 1px solid #fff;
+    padding-right: 10px;
     float: left;
     overflow: hidden;
-    border-right: 1px solid #ddd;
-    margin-right: 40px;
+    margin-right: 10px;
 }
 .logo p {
     float: right;
@@ -58,6 +73,14 @@ body{
     opacity: .8;
     font-size: 8pt;
     text-shadow: 0px 0px 5px #000;
+}
+#greeting {
+    font-size: 12pt;
+    margin-top: 2px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    float: left;
+    text-transform: uppercase;
 }
 .toolbar{
     padding: 20px;
@@ -207,7 +230,6 @@ button#speech {
 }
 #clock {
     font-size: 14pt;
-    font-weight: bold;
     font-family: 'roboto' sans-serif;
     width: auto;
     margin: 0;

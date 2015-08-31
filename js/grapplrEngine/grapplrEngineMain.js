@@ -8,12 +8,18 @@ $(document).ready(function(){
     var t = setTimeout(function(){startTime()},500);
     function startTime() {
         var today=new Date();
-        var h=today.getHours();
-        var m=today.getMinutes();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var d = today.getDay();
+        var mo = today.getMonth();
+        var y = today.getFullYear();
+//        var h = 11;
+//        var m = 30;
         h = checkHours(h);
         m = checkMinutes(m);
-        document.getElementById('clock').innerHTML = h+":"+m;
-        var t = setTimeout(function(){startTime()},500);
+        document.getElementById('clock').innerHTML = mo+"/"+d+"/"+y+" <b>"+h+":"+m+" "+tod+"</b>";
+        var t = setTimeout(function(){startTime()}, 1);
+        h = setGreeting(h);
     }
 
     function checkMinutes(i) {
@@ -21,7 +27,28 @@ $(document).ready(function(){
         return i;
     }
     function checkHours(i) {
-        if (i>12) {i = i-12};
+        if (i>=12) {
+            if(i == 12){
+                i =12;
+                tod = "PM";
+            } else {
+                i = i-12; tod = "PM";
+            }
+        }
+        return i;
+    }
+    function setGreeting(i){
+        if (tod == "PM"){
+            if (i == 12){
+                document.getElementById("greeting").innerHTML = "Grab a bite!";
+            } else if(i > 5){
+                document.getElementById("greeting").innerHTML = "Good evening";
+            } else {
+                document.getElementById("greeting").innerHTML = "Good afternoon";
+            }
+        } else {
+            document.getElementById("greeting").innerHTML = "Good morning";
+        }
         return i;
     }
 });
@@ -30,7 +57,7 @@ var query = document.getElementById("query").value;
 
 //Custom Command Step 1:
 //Define Function Toggle
-
+var tod = "AM";
 var DownloadToggle = 0;
 var FindToggle = 1;
 var PlayToggle = 0;
@@ -160,7 +187,7 @@ document.onkeyup = function(event) {
             qToggle = 1;
             document.getElementById("q").style.display = "inline-block";
             document.getElementById("controls").style.width = "60px";
-        } else if (keyword.indexOf("go to") != -1 ||  two_keywords.indexOf("open") != -1 ||  two_keywords.indexOf("navigate to") != -1) {
+        } else if (two_keywords.indexOf("go to") != -1 ||  keyword.indexOf("open") != -1 ||  two_keywords.indexOf("navigate to") != -1) {
             clearall();
             NavToggle = 1;
             document.getElementById("nav").style.display = "inline-block";
@@ -240,7 +267,7 @@ function load() {
 }
 function unload() {
     clearall();
-    document.getElementById("speech").style.display = "inline";
+//    document.getElementById("speech").style.display = "inline";
     document.getElementById("query").style.display = "inline";
     document.getElementById("load").style.display = "none";
 }
