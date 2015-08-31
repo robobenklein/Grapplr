@@ -10,6 +10,10 @@
     "default_popup": "add.html",
     "default_title": "Click to grapple this site into your favorites!"
   },
+    
+  "chrome_url_overrides" : {
+    "newtab": "grapplr.html"
+  },
   "permissions": [
     "activeTab",
     "https://ajax.googleapis.com/"

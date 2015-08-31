@@ -1,5 +1,13 @@
+@-webkit-keyframes header {
+    from {opacity: 0; width: 200px;}
+    to {opacity: 1; width: 1100px;}
+}
+@keyframes header {
+    from {z-index: -9999; opacity: 0; width: 1220px; transform: scale(.8);}
+    to {z-index: -9999; opacity: 1; width: 1100px; transform: scale(1);}
+}
 body {
-    background-color: #ededed;
+    background-color: #fff;
     background-position: center;
     font-family: 'Raleway', sans-serif;
     -webkit-background-size: cover;
@@ -11,10 +19,12 @@ body {
 }
 /* HOME */
 h1 {
+    color: #000;
     font-weight: 100;
     margin-top: 60px;
     margin-bottom: 60px;
     font-size: 20pt;
+    font-family: 'Roboto Slab', sans-serif;
 }
 p {
     font-weight: 400;
@@ -24,14 +34,13 @@ p {
     line-height: 20px;
 }
 .nav_bar{
-    border-bottom: 1px solid #ededed;
     z-index: 99;
-    background-color: #ededed;
+     background-color: #fff;
     overflow: hidden;
     position: fixed;
     width: 100%;
     display: inline-block;
-    transition: all 2s ease;
+    transition: all .5s ease;
 }
 .nav_bar_small{
     border-bottom: 1px solid #ededed;
@@ -56,7 +65,7 @@ p {
 }
 .top {
     height: 500px;
-    width: 980px;
+    width: 1100px;
     margin: 0 auto;
     padding-top: 103px;
 }
@@ -64,13 +73,12 @@ p {
     width: 980px;
     margin: 0 auto;
     position: fixed;
-    z-index: -999;
+    z-index: -1;
 }
 .splash img {
     margin: 0;
 }
 .content {
-    z-index: -99;
     box-shadow: 0px 0px 200px -100px #000;
     margin: 0px;
     background-color: #fff;
@@ -87,6 +95,8 @@ p {
     height: 296px;
 }
 .section h1{
+    font-family: 'Raleway', sans-serif;
+    color: #000;
     font-size: 12pt;
     margin-top: 18px;
     margin-left: 18px;
@@ -169,4 +179,37 @@ button:focus {
 }
 button:hover {
     border-bottom: 3px solid #000;
+}
+button.downloadbtn {
+    text-align: left;
+    animation: header 1s ease;
+    font-weight: 100;
+    font-size: 12pt;
+    background-color: rgba(0,0,0,0);
+    color: #000;
+    position: absolute;
+    max-width: 250px;
+    z-index: 999; 
+}
+button.downloadbtn:hover {
+    border-bottom: 3px solid #000;
+}
+button.downloadbtn:active {
+    background-color: #000;
+    color: #fff;
+}
+button.downloadbtn#dlbottom {
+    margin-left: 790px;
+    margin-top: 180px;
+}
+button.downloadbtn#dltop {
+    animation: header 0s ease;
+    display: none;
+    margin-top: -22px;
+    margin-left: 730px;
+}
+button.downloadbtn img {
+    float: left;
+    margin-right: 10px;
+    position: relative;
 }

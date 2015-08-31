@@ -5,7 +5,7 @@
    100% { background-position: -2160px; }
 }
 body{
-    background: url('../images/default_wallpaper/red.jpg');
+    background: url('../images/default_wallpaper/yellow.jpg');
     background-position: center;
     background-color: #fff;
     -webkit-background-size: cover;
@@ -16,14 +16,25 @@ body{
     padding: 0;
     color: #fff;
     font-family: 'Raleway', sans-serif;
-    height: 600px;
-    width: 800px;
-}
-html {
-    height: 600px;
-    width: 800px;
 }
 ::selection { background: rgba(0,0,0,1); color: #fff;}
+.left_tools {
+    overflow: hidden;
+    float: left;
+    width: 50%;
+}
+.right_tools {
+    overflow: hidden;
+    float: right;
+    width: 50%;
+}
+.right_tools button {
+    float: right;
+}
+.toolbar button{
+    display: inline-block;
+    padding: 0px;
+}
 .dots {
     min-height: 100%;
     min-width: 100%;
@@ -49,8 +60,8 @@ html {
     text-shadow: 0px 0px 5px #000;
 }
 .toolbar{
+    padding: 20px;
     overflow: hidden;
-    padding: 40px;
     padding-bottom: 0;
 }
 .profile p {
@@ -175,6 +186,7 @@ iframe#redirectChecker {
     width: 60px;
     height: 60px;
     background: url('../images/loading/loading.png') left center;
+    animation: play 1s steps(92) infinite;
 }
 .speechBox {
     position: absolute;
@@ -192,4 +204,15 @@ button#speech {
     display: inline;
     padding: 0;
     margin: 0;
+}
+#clock {
+    font-size: 14pt;
+    font-weight: bold;
+    font-family: 'roboto' sans-serif;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    float: right;
 }

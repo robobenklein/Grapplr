@@ -3,7 +3,28 @@
 //
 //License:
 //1. This code may be modified, but all sections of commented code must be left intact.
-//2. You may not redistribute this code in its entirety, but you may redistribute your section of modified code.
+//2. You may not redistribute this code (or any other code within the Grapplr engine) in its entirety, but you may redistribute your section of modified code.
+$(document).ready(function(){
+    var t = setTimeout(function(){startTime()},500);
+    function startTime() {
+        var today=new Date();
+        var h=today.getHours();
+        var m=today.getMinutes();
+        h = checkHours(h);
+        m = checkMinutes(m);
+        document.getElementById('clock').innerHTML = h+":"+m;
+        var t = setTimeout(function(){startTime()},500);
+    }
+
+    function checkMinutes(i) {
+        if (i<10) {i = "0" + i};
+        return i;
+    }
+    function checkHours(i) {
+        if (i>12) {i = i-12};
+        return i;
+    }
+});
 
 var query = document.getElementById("query").value;
 
@@ -26,9 +47,13 @@ var PlotToggle = 0;
 
 document.onkeyup = function(event) {
     var query = document.getElementById("query").value;
-
+    var queryWords = query.split(" ");
+    var keyword = query.split(" ", 2)[0];
+    var two_keywords = queryWords[0] + " " + queryWords[1];
+    var three_keywords = queryWords[0] + " " + queryWords[1] + " " + queryWords[2];
+    
     if (event.keyCode == 32) {
-        speak();
+//        speak();
     } else {
         $('#query').focus();
         
@@ -96,65 +121,65 @@ document.onkeyup = function(event) {
 //          document.getElementById("controls").style.width = "60px";
 //      } else { ...
         
-        if (query.indexOf("download") != -1 || query.indexOf("get") != -1) {
+        if (keyword.indexOf("download") != -1 || keyword.indexOf("get") != -1) {
             clearall();
             DownloadToggle = 1;
             document.getElementById("dl").style.display = "inline-block";
             document.getElementById("controls").style.width = "60px";
-        } else if (query.indexOf("gcl") != -1) {
+        } else if (keyword.indexOf("gcl") != -1) {
             document.getElementById("gcl").style.display = "inline-block";
             document.getElementById("controls").style.width = "60px";
         }
-        else if (query.indexOf("find") != -1 || (query.indexOf("look for") != -1) || (query.indexOf("search for") != -1)) {
+        else if (keyword.indexOf("find") != -1 || ( two_keywords.indexOf("look for") != -1) || ( two_keywords.indexOf("search for") != -1)) {
             clearall();
             FindToggle = 1;
             document.getElementById("sb").style.display = "inline-block";
             document.getElementById("controls").style.width = "60px";
-        } else if (query.indexOf("tweet") != -1) {
+        } else if (keyword.indexOf("tweet") != -1) {
             clearall();
             TweetToggle = 1;
             document.getElementById("tweet").style.display = "inline-block";
             document.getElementById("controls").style.width = "60px";
-        } else if (query.indexOf("post:") != -1) {
+        } else if (keyword.indexOf("post:") != -1) {
             clearall();
             PostToggle = 1;
             document.getElementById("fbpost").style.display = "inline-block";
             document.getElementById("controls").style.width = "60px";
-        } else if (query.indexOf("play") != -1) {
+        } else if (keyword.indexOf("play") != -1) {
             clearall();
             PlayToggle = 1;
             document.getElementById("play").style.display = "inline-block";
             document.getElementById("controls").style.width = "60px";
-        } else if (query.indexOf("define") != -1 || query.indexOf("what does") != -1 && query.indexOf("mean") != -1) {
+        } else if (keyword.indexOf("define") != -1 || two_keywords.indexOf("what does") != -1 && keyword.indexOf("mean") != -1) {
             clearall();
             DefineToggle = 1;
             document.getElementById("df").style.display = "inline-block";
             document.getElementById("controls").style.width = "60px";
-        } else if (query.indexOf("what") != -1 || query.indexOf("who") != -1 || query.indexOf("when") != -1 || query.indexOf("where") != -1 || query.indexOf("how") != -1) {
+        } else if (keyword.indexOf("what") != -1 || keyword.indexOf("who") != -1 || keyword.indexOf("when") != -1 || keyword.indexOf("where") != -1 || keyword.indexOf("how") != -1) {
             clearall();
             qToggle = 1;
             document.getElementById("q").style.display = "inline-block";
             document.getElementById("controls").style.width = "60px";
-        } else if (query.indexOf("go to") != -1 || query.indexOf("open") != -1 || query.indexOf("navigate to") != -1) {
+        } else if (keyword.indexOf("go to") != -1 ||  two_keywords.indexOf("open") != -1 ||  two_keywords.indexOf("navigate to") != -1) {
             clearall();
             NavToggle = 1;
             document.getElementById("nav").style.display = "inline-block";
             document.getElementById("controls").style.width = "60px";
-        } else if (query.indexOf("translate") != -1) {
+        } else if (keyword.indexOf("translate") != -1) {
             clearall();
             NavToggle = 1;
             document.getElementById("trans").style.display = "inline-block";
             document.getElementById("controls").style.width = "60px";
-        } else if (query.indexOf("gcl: refresh") != -1 || query.indexOf("gcl: fix") != -1) {
+        } else if (keyword.indexOf("gcl: refresh") != -1 || keyword.indexOf("gcl: fix") != -1) {
             load();
             clearall();
             window.location.assign("/grapplr.php");
-        } else if (query.indexOf("calculate") != -1) {
+        } else if (keyword.indexOf("calculate") != -1) {
             clearall();
             CalcToggle = 1;
             document.getElementById("calc").style.display = "inline-block";
             document.getElementById("controls").style.width = "60px";
-        } else if (query.indexOf("plot") != -1) {
+        } else if (keyword.indexOf("plot") != -1) {
             clearall();
             CalcToggle = 1;
             document.getElementById("plot").style.display = "inline-block";
@@ -209,7 +234,7 @@ function clearall() {
 
 function load() {
     clearall();
-    document.getElementById("speech").style.display = "none";
+//    document.getElementById("speech").style.display = "none";
     document.getElementById("query").style.display = "none";
     document.getElementById("load").style.display = "inline-block";
 }
@@ -218,6 +243,12 @@ function unload() {
     document.getElementById("speech").style.display = "inline";
     document.getElementById("query").style.display = "inline";
     document.getElementById("load").style.display = "none";
+}
+function getKeywords() {
+    var queryWords = query.split(" ");
+    var keyword = query.split(" ", 2)[0];
+    var two_keywords = queryWords[0] + " " + queryWords[1];
+    var three_keywords = queryWords[0] + " " + queryWords[1] + " " + queryWords[2];
 }
 if (annyang) {
     var changeText = function(stuff) {
