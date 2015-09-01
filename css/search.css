@@ -1,3 +1,12 @@
+
+@keyframes rotatePlus{
+  0% {
+    transform:  rotate(0deg) ;
+  }
+  100% {
+    transform:  rotate(90deg) ;
+  }
+}
 @keyframes fade {
     from {opacity: 0}
     to {opacity: 1}
@@ -15,7 +24,7 @@ html {
     width: 100%;
 }
 body{
-    background: url('../images/bg4.jpg');
+    background: url('../images/default_wallpaper/concrete.jpg');
     background-position: center;
     background-color: #fff;
     -webkit-background-size: cover;
@@ -114,7 +123,7 @@ b {
     width: 100%;
     top: 45%;
 }
-input[type=text]{
+input[type=text].grapplr{
     color: #fff;
     border: 0px;
     width: 100%;
@@ -127,17 +136,14 @@ input[type=text]{
 input:focus {
     outline:none;
 }
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:  rgba(255,255,255,0.5);
-}
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:  rgba(255,255,255,0.5);
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:  rgba(255,255,255,0.5);
-}
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color:  rgba(255,255,255,0.5);
+input#task {
+    border: 0px;
+    padding: 10px;
+    color: #000;
+    width: auto;
+    margin: 0px 10px 0px 10px;
+    padding: 20px;
+    background-color: rgba(0,0,0,0);
 }
 .controls {
     width: 0px;
@@ -252,7 +258,7 @@ button#speech {
     float: right;
 }
 .menu {
-    border-radius: 5px;
+    border-radius: 2px;
     padding: 0px;
     margin: 10px;
     color: #000;
@@ -260,7 +266,7 @@ button#speech {
     height: auto;
     background-color: #fff;
     box-shadow: 0px 0px 20px -5px #000;
-    transition: .6s all ease;
+    transition: .2s all ease;
 }
 .menu p {
     margin: 20px;
@@ -270,7 +276,6 @@ button#speech {
     text-transform: uppercase;
     margin: 0px 10px 0px 10px;
     padding: 20px;
-    border-bottom: 1px solid #aaa;
     color: #000;
     text-align: center;
 }
@@ -283,8 +288,24 @@ button#speech {
     right: 0;
     bottom: 30;
 }
-#add_todo {
+#open_todo {
     display: inline-block;
     padding: 0px;
     margin-top: 5px;
+}
+.add_x_todo {
+    display: inline;
+    margin-right: 22px;
+    margin-top: 25px;
+}
+button#add_todo {
+    position: absolute;
+    visibility: hidden;
+    right: 0;
+}
+#task_add {
+    transition: .4s all cubic-bezier(0,.5,0,1);
+    overflow: hidden;
+    height: 0px;
+    visibility: hidden;
 }

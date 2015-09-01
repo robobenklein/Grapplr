@@ -41,7 +41,7 @@ $(document).ready(function(){
         if (tod == "PM"){
             if (i == 12){
                 document.getElementById("greeting").innerHTML = "Grab a bite!";
-            } else if(i > 5){
+            } else if(i > 4){
                 document.getElementById("greeting").innerHTML = "Good evening";
             } else {
                 document.getElementById("greeting").innerHTML = "Good afternoon";
@@ -82,7 +82,7 @@ document.onkeyup = function(event) {
     if (event.keyCode == 32) {
 //        speak();
     } else {
-        $('#query').focus();
+//        $('#query').focus();
         
 //      Step 2:
 //      Enter Key Activation

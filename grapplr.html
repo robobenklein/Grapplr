@@ -36,16 +36,23 @@
               <div id="clock"></div>
             </div>
         </div>
+        
         <div class="menu" id="todo">
-            <div class="menu_title">TO DO<button id="add_todo" style="display: inline-block; float: right;"><img src="images/add.png"></button></div>
+            <div class="menu_title">TO DO<button id="open_todo" style="display: inline-block; float: right;"><img src="images/add.png"></button></div>
+            <div id="task_add">
+                <input type="text" id="task" placeholder="enter a task">
+                <button class="add_x_todo" id="x_todo" style="float: right;"><img  class="todo_x" src="images/x.png"></button>
+                <button class="add_x_todo" id="add_todo" style="float: right;"><img  class="todo_x" src="images/add.png"></button>
+            </div>
             <div class="menu_content">
                 <p>Nothing to do!</p>
             </div>
         </div>
+        
         <div class="grappl">
             <div class="loadbox">
             </div>
-            <input type="text" spellcheck="false" name="query" id="query" placeholder="start typing something..." autofocus autocomplete="off" x-webkit-speech/>
+            <input class="grapplr" type="text" spellcheck="false" name="query" id="query" placeholder="start typing something..." autofocus autocomplete="off" x-webkit-speech/>
             <div class="controls" id="controls">
                 <div id="load"></div>
                 <button id="sb" onclick="search()"><img src="images/sd.png" /></button>
