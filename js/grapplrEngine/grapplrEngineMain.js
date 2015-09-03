@@ -51,8 +51,16 @@ $(document).ready(function(){
         }
         return i;
     }
+    $("#query").focus();
+    var e = $.Event("keydown", { keyCode: 9}); //"keydown" if that's what you're doing
+    $("html").trigger(e);
 });
-
+$('#doots').click(function() {
+    unloadMenus();
+});
+ document.getElementById('apps').onclick = function() {
+        chrome.tabs.update({ url: 'chrome://apps/' });
+    }
 var query = document.getElementById("query").value;
 
 //Custom Command Step 1:

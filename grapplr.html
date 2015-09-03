@@ -9,46 +9,11 @@
         <script src="js/annyang.min.js"></script>
         <script src="js/jquery.autocorrect-1.0.js"></script>
         <script src="js/spellcheck.js"></script>
-		<title>Grapplr</title>
+		<title>New Tab</title>
 	</head>
 	<body>
         <div class="dots"></div>
-        <div class="toolbar">
-            <div class="left_tools">
-                <a href="chrome://apps"><button><img src="images/apps.png"></button></a>
-            </div>
-            <div class="center_tools">
-                <div class="logo"><img src="images/grapplr_logo.png"></div>
-                <div id="greeting"></div>
-            </div>
-            <div class="right_tools">
-                <button><img src="images/settings.png"></button>
-              <div id="clock"></div>
-            </div>
-        </div>
-        <div class="toolbar" id="bottomtoolbar">
-            <div class="left_tools">
-            </div>
-            <div class="center_tools">
-            </div>
-            <div class="right_tools">
-                <button id="todo_toggle"><img src="images/todo.png"></button>
-              <div id="clock"></div>
-            </div>
-        </div>
-        
-        <div class="menu" id="todo">
-            <div class="menu_title">TO DO<button id="open_todo" style="display: inline-block; float: right;"><img src="images/add.png"></button></div>
-            <div id="task_add">
-                <input type="text" id="task" placeholder="enter a task">
-                <button class="add_x_todo" id="x_todo" style="float: right;"><img  class="todo_x" src="images/x.png"></button>
-                <button class="add_x_todo" id="add_todo" style="float: right;"><img  class="todo_x" src="images/add.png"></button>
-            </div>
-            <div class="menu_content">
-                <p>Nothing to do!</p>
-            </div>
-        </div>
-        
+        <div class="overlay" id="overlay"></div>
         <div class="grappl">
             <div class="loadbox">
             </div>
@@ -70,6 +35,34 @@
                 <button id="gcl"><img src="images/gcl.png" /></button>
             </div>
         </div>
+        <div class="toolbar">
+            <div class="left_tools">
+                <a id="apps"><button><img src="images/apps.png"></button></a>
+            </div>
+            <div class="center_tools">
+                <div class="logo"><img src="images/grapplr_logo.png"></div>
+                <div id="greeting"></div>
+            </div>
+            <div class="right_tools">
+                <button id="settings_toggle"><img src="images/settings.png"></button>
+              <div id="clock"></div>
+            </div>
+        </div>
+        <div class="menu" id="settings">
+            <div class="menu_title">SETTINGS</div>
+            <div class="option">CHANGE BACKGROUND IMAGE</div>
+            <div class="option">EDIT FAVORITES</div>
+            <div class="option" style="margin-bottom: 1px;">HELP</div>
+        </div>
+        <div class="toolbar" id="bottomtoolbar">
+            <div class="left_tools">
+            </div>
+            <div class="center_tools">
+            </div>
+            <div class="right_tools">
+              <div id="clock"></div>
+            </div>
+        </div>
         <div class="speechBox">
         </div>
 	</body>
@@ -85,6 +78,6 @@
         <script language="javascript" type="text/javascript" src="js/grapplrEngine/functions/define.js"></script>
         <script language="javascript" type="text/javascript" src="js/grapplrEngine/functions/calculate.js"></script>
         <script language="javascript" type="text/javascript" src="js/grapplrEngine/functions/plot.js"></script>
-        <script language="javascript" type="text/javascript" src="js/grapplrEngine/todo.js"></script>
+        <script language="javascript" type="text/javascript" src="js/grapplrEngine/menus.js"></script>
     </grapplrEngine>
 </html>

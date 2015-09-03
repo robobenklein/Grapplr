@@ -11,6 +11,10 @@
     from {opacity: 0}
     to {opacity: 1}
 }
+@keyframes fadeout {
+    from {opacity: 1}
+    to {opacity: 0}
+}
 @keyframes play {
    100% { background-position: -5520px; }
 }
@@ -18,13 +22,15 @@
    100% { background-position: -2160px; }
 }
 html {
-    animation: fade 1s;
     min-height: 600px;
     min-width: 706px;
     width: 100%;
+    -webkit-user-select: none;
+    cursor: default;
 }
 body{
-    background: url('../images/default_wallpaper/concrete.jpg');
+    animation: fade 2s ease;
+    background: url('../images/default_wallpaper/yellow.jpg');
     background-position: center;
     background-color: #fff;
     -webkit-background-size: cover;
@@ -67,7 +73,13 @@ b {
     min-width: 100%;
     background-image: url(../images/dot.png);
     position: fixed;
-    z-index: -99;
+    z-index: -1;
+}
+.overlay {
+    min-height: 100%;
+    min-width: 100%;
+    position: fixed;
+    visibility: hidden;
 }
 .logo{
     border-right: 1px solid #fff;
@@ -124,6 +136,8 @@ b {
     top: 45%;
 }
 input[type=text].grapplr{
+    cursor: auto;
+    -webkit-user-select: text;
     color: #fff;
     border: 0px;
     width: 100%;
@@ -288,6 +302,12 @@ button#speech {
     right: 0;
     bottom: 30;
 }
+#settings {
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 30;
+}
 #open_todo {
     display: inline-block;
     padding: 0px;
@@ -308,4 +328,20 @@ button#add_todo {
     overflow: hidden;
     height: 0px;
     visibility: hidden;
+}
+.option {
+    background-color: #eee;
+    font-family: 'roboto' sans-serif;
+    margin: 0;
+    padding: 20px;
+    color: #000;
+    transition: all .2s ease;
+    border-radius: 2px;
+    margin: 1px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.option:hover {
+    background-color: #333;
+    color: #fff;
 }
