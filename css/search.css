@@ -146,6 +146,7 @@ input[type=text].grapplr{
     font-size: 30pt;
     font-family: 'Raleway', sans-serif;
     font-weight: lighter;
+    text-transform: lowercase;
 }
 input:focus {
     outline:none;

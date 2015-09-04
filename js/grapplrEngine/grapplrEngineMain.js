@@ -59,7 +59,7 @@ $('#doots').click(function() {
     unloadMenus();
 });
  document.getElementById('apps').onclick = function() {
-        chrome.tabs.update({ url: 'chrome://apps/' });
+        chrome.tabs.update({ url: 'chrome://apps/'});
     }
 var query = document.getElementById("query").value;
 
@@ -82,6 +82,7 @@ var PlotToggle = 0;
 
 document.onkeyup = function(event) {
     var query = document.getElementById("query").value;
+    var query = query.toLowerCase();
     var queryWords = query.split(" ");
     var keyword = query.split(" ", 2)[0];
     var two_keywords = queryWords[0] + " " + queryWords[1];
