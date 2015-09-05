@@ -1,0 +1,17 @@
+body{
+    background-image: none;
+    background-color: #e2e2e2;
+    color: #000;
+}
+.dots {
+    background-image: none;
+}
+.ui_icon {
+    -webkit-filter: invert(1);
+}
+input[type=text].grapplr {
+    color: #000;
+}
+.controls {
+    border-bottom: none;
+}

@@ -12,8 +12,8 @@
     to {opacity: 1}
 }
 @keyframes remind {
-    from {opacity: 0; transform: rotate(10deg); margin-top: -100px;}
-    to {opacity: 1; transform: rotate(0deg); margin-top: 2px;}
+    from {opacity: 0; margin-top: 100px;}
+    to {opacity: 1; margin-top: 2px;}
 }
 @keyframes fadeout {
     from {opacity: 1}
@@ -34,18 +34,18 @@ html {
 }
 body{
     animation: fade 2s ease;
-    background: url('../images/default_wallpaper/red.jpg');
     background-position: center;
-    background-color: #fff;
+    background-color: #333;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     margin: 0;
     padding: 0;
-    color: #fff;
+    color: #f33;
     font-family: 'Raleway', sans-serif;
     width: 100%;
+    text-shadow: 0px 2px 0px #000;
 }
 b {
     margin-left: 10px;
@@ -84,7 +84,6 @@ b {
 .dots {
     min-height: 100%;
     min-width: 100%;
-    background-image: url(../images/dot.png);
     position: fixed;
     z-index: -1;
 }
@@ -95,7 +94,7 @@ b {
     visibility: hidden;
 }
 .logo{
-    border-right: 1px solid #fff;
+    border-right: 1px solid #000;
     padding-right: 10px;
     float: left;
     overflow: hidden;
@@ -124,18 +123,7 @@ b {
     font-weight: 100;
     font-family: 'raleway', sans-serif;
     text-align: center;
-    animation: remind 1s ease;
-    transition: all 1s ease;
-}
-#reminder:before {
-    content: '';
-}
-#reminder:hover:before {
-    animation: fade 1s ease;
-    content: ' \2714';
-}
-#reminder:hover {
-    opacity: 0.5;
+    animation: remind 2s ease;
 }
 .toolbar{
     padding: 20px;
@@ -170,7 +158,7 @@ b {
 input[type=text].grapplr{
     cursor: auto;
     -webkit-user-select: text;
-    color: #fff;
+    color: #f33;
     border: 0px;
     width: 100%;
     background-color: rgba(0,0,0,0);
@@ -179,9 +167,7 @@ input[type=text].grapplr{
     font-family: 'Raleway', sans-serif;
     font-weight: lighter;
     text-transform: lowercase;
-}
-::-webkit-input-placeholder {
-   color: rgba(255,255,255,0.5);
+    text-shadow: 0px -1px 0px #f88, 0px 3px 3px #000;
 }
 input:focus {
     outline:none;
@@ -189,7 +175,7 @@ input:focus {
 input#task {
     border: 0px;
     padding: 10px;
-    color: #000;
+    color: #f33;
     width: auto;
     margin: 0px 10px 0px 10px;
     padding: 20px;
@@ -199,7 +185,7 @@ input#task {
     width: 0px;
     margin: 0 auto;
     margin-top: 14px;
-    border-bottom: 1.5px solid #fff;
+    border-bottom: 1px solid #F33;
     transition: all 0.5s ease;
 }
 .controls button {
@@ -256,14 +242,14 @@ li {
     display: inline-block;
     opacity: 0;
     padding: 18px; 
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid #000;
     margin: 0px;
     font-size: 10pt;
     text-transform: uppercase;
 }
 li:hover {
     background-color: #000;
-    color: #fff;
+    color: #000;
     display: inline-block;
     opacity: 1;
 }
@@ -311,7 +297,7 @@ button#speech {
     border-radius: 2px;
     padding: 0px;
     margin: 10px;
-    color: #000;
+    color: #f33;
     width: 300px;
     height: auto;
     background-color: #fff;
@@ -382,5 +368,5 @@ button#add_todo {
     color: #fff;
 }
 .ui_icon {
-    animation: fade .2s ease;
+    -webkit-filter: brightness(.4) sepia(100%) hue-rotate(-40deg) saturate(10);
 }

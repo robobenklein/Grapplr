@@ -1,0 +1,24 @@
+
+body{
+    background-image: none;
+    background-color: #333;
+    color: #0af;
+}
+.dots {
+    background-image: none;
+}
+.ui_icon {
+    -webkit-filter: invert(1);
+}
+input[type=text].grapplr {
+    color: #0af;
+}
+::-webkit-input-placeholder {
+   color: #159;
+}
+.ui_icon {
+    -webkit-filter: brightness(.4) sepia(100%) hue-rotate(160deg) saturate(10);
+}
+.controls {
+    border-bottom: 1px solid #0af;
+}

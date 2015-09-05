@@ -1,0 +1,6 @@
+.dots {
+    background-image: none;
+    background-color: #000;
+    opacity: 0.6;
+    box-shadow: inset 0px 0px 200px #000;
+}

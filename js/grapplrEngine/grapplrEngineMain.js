@@ -5,6 +5,7 @@
 //1. This code may be modified, but all sections of commented code must be left intact.
 //2. You may not redistribute this code (or any other code within the Grapplr engine) in its entirety, but you may redistribute your section of modified code.
 $(document).ready(function(){
+    document.getElementById("greeting").innerHTML = "loading...";
     var t = setTimeout(function(){startTime()},500);
     function startTime() {
         var today=new Date();
@@ -79,6 +80,7 @@ var TransToggle = 0;
 var speechToggle = 0;
 var CalcToggle = 0;
 var PlotToggle = 0;
+var RemindToggle = 0;
 
 document.onkeyup = function(event) {
     var query = document.getElementById("query").value;
@@ -137,6 +139,9 @@ document.onkeyup = function(event) {
             } else if (PlotToggle == 1) {
                 load();
                 plot();
+            } else if (RemindToggle == 1) {
+                load();
+                remind();
             } else {
                 search();
                 console.log("searching");
@@ -165,8 +170,7 @@ document.onkeyup = function(event) {
         } else if (keyword.indexOf("gcl") != -1) {
             document.getElementById("gcl").style.display = "inline-block";
             document.getElementById("controls").style.width = "60px";
-        }
-        else if (keyword.indexOf("find") != -1 || ( two_keywords.indexOf("look for") != -1) || ( two_keywords.indexOf("search for") != -1)) {
+        } else if (keyword.indexOf("find") != -1 || ( two_keywords.indexOf("look for") != -1) || ( two_keywords.indexOf("search for") != -1)) {
             clearall();
             FindToggle = 1;
             document.getElementById("sb").style.display = "inline-block";
@@ -220,6 +224,11 @@ document.onkeyup = function(event) {
             CalcToggle = 1;
             document.getElementById("plot").style.display = "inline-block";
             document.getElementById("controls").style.width = "60px";
+        } else if (two_keywords.indexOf("remind me") != -1) {
+            clearall();
+            RemindToggle = 1;
+            document.getElementById("remind").style.display = "inline-block";
+            document.getElementById("controls").style.width = "60px";
         } else {
             clearall();
         }
@@ -239,6 +248,7 @@ function clearall() {
     TransToggle = 0;
     CalcToggle = 0;
     PlotToggle = 0;
+    RemindToggle = 0;
     
 //  Step:
 //  Set function toggle to off here
@@ -258,6 +268,7 @@ function clearall() {
     document.getElementById("trans").style.display = "none";
     document.getElementById("calc").style.display = "none";
     document.getElementById("plot").style.display = "none";
+    document.getElementById("remind").style.display = "none";
     
 //  Step 5 (last step on this file):
 //  Make command icon disappear here
