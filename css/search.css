@@ -34,7 +34,6 @@ html {
 }
 body{
     animation: fade 2s ease;
-    background: url('../images/default_wallpaper/grapplrdefault1.png');
     background-position: center;
     background-color: #fff;
     -webkit-background-size: cover;
@@ -413,12 +412,13 @@ input.chbg::-webkit-file-upload-button {
     display: none;
 }
 input.chbg::before {
+    font-size: 9pt;
     font-weight: bold;
     position: relative;
-    top: 88;
-    left: 26;
+    top: 93;
+    left: 5;
     text-align: center;
-    content: 'DRAG AN IMAGE HERE';
+    content: 'DRAG AN IMAGE OR CLICK HERE';
 }
 input.chbg:hover {
     background-color: #fff;

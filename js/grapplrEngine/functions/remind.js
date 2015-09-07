@@ -28,6 +28,7 @@ function remind(){
         reminder = reminder.replace(/ am /," are ");
         reminder = reminder.replace(/ i'm /," you're ");
         reminder = reminder + " ";
+//      thirdPerson(reminder);
         var task = "<div id='reminder'> remember to " + reminder + "</div>";
         document.getElementById("center_reminder").innerHTML = task;
     }
@@ -39,6 +40,7 @@ function remind(){
         reminder = reminder.replace(/ am /," are ");
         reminder = reminder.replace(/ i'm /," you're ");
         reminder = reminder + " ";
+//      thirdPerson(reminder);
         var task = "<div id='reminder'> remember that " + reminder + "</div>";
         document.getElementById("center_reminder").innerHTML = task;
         
@@ -74,3 +76,10 @@ function redisplay() {
     reminders = JSON.parse(localStorage.getItem('remindersLocal'))[0];
     document.getElementById("center_reminder").innerHTML = reminders;
 }
+//function thirdPerson (w){
+//        w = w.replace(/ me | me/," you ");
+//        w = w.replace(/ my | my/," your ");
+//        w = w.replace(/ i | i/," you ");
+//        return w;
+//}
+    
