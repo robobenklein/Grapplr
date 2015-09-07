@@ -12,6 +12,9 @@ body{
 input[type=text].grapplr {
     color: #000;
 }
+::-webkit-input-placeholder {
+    color: #555;
+}
 .controls {
-    border-bottom: none;
+    border-bottom: 1px solid #000;
 }

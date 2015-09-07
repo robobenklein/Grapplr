@@ -18,7 +18,7 @@ function remind(){
     var request = document.getElementById("query").value;
     var reminder;
     var reminders = [];
-    document.getElementById("center_reminder").style.display = "inline";
+    document.getElementById("center_reminder").style.visibility = "visible";
     document.getElementById("query").value = "";
     if (request.indexOf("remind me to") != -1){
         reminder = request.match("remind me to(.*)")[1];
@@ -47,8 +47,6 @@ function remind(){
     }
     document.getElementById("center_tools").style.marginTop = "-10px";
     clearall();
-    document.getElementById("controls").style.width = "0px";
-    document.getElementById("remind").style.display = "none";
     
      if (localStorage.getItem('remindersLocal') === null){
         reminders = [];
@@ -70,7 +68,7 @@ document.getElementById("center_reminder").onclick = function(){
         reminders = JSON.parse(localStorage.getItem('remindersLocal'))[0];
         populateList(reminders);
     } if (reminders == undefined){
-        document.getElementById("center_reminder").style.display = "none";
+        document.getElementById("center_reminder").style.visibility = "hidden";
         document.getElementById("center_tools").style.marginTop = "0px";
     }
 }

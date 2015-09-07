@@ -8,17 +8,15 @@ $(document).ready(function(){
     document.getElementById("greeting").innerHTML = "loading...";
     var t = setTimeout(function(){startTime()},500);
     function startTime() {
-        var today=new Date();
+        var today = new Date();
         var h = today.getHours();
         var m = today.getMinutes();
-        var d = today.getDay();
-        var mo = today.getMonth();
-        var y = today.getFullYear();
+        var date = today.toDateString();
 //        var h = 11;
 //        var m = 30;
         h = checkHours(h);
         m = checkMinutes(m);
-        document.getElementById('clock').innerHTML = mo+"/"+d+"/"+y+" <b>"+h+":"+m+" "+tod+"</b>";
+        document.getElementById('clock').innerHTML = date + " <b>"+h+":"+m+" "+tod+"</b>";
         var t = setTimeout(function(){startTime()}, 1);
         h = setGreeting(h);
     }
@@ -146,6 +144,8 @@ document.onkeyup = function(event) {
                 search();
                 console.log("searching");
             }
+            document.getElementById("controls").style.width = "0px";
+            document.getElementById("remind").style.display = "none";
         }
         
 //      Step 3:

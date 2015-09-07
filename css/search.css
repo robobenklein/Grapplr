@@ -12,8 +12,8 @@
     to {opacity: 1}
 }
 @keyframes remind {
-    from {opacity: 0; transform: rotate(10deg); margin-top: -100px;}
-    to {opacity: 1; transform: rotate(0deg); margin-top: 2px;}
+    from {opacity: 0; margin-top: -20px;}
+    to {opacity: 1; margin-top: 2px;}
 }
 @keyframes fadeout {
     from {opacity: 1}
@@ -34,7 +34,7 @@ html {
 }
 body{
     animation: fade 2s ease;
-    background: url('../images/default_wallpaper/red.jpg');
+    background: url('../images/default_wallpaper/grapplrdefault1.png');
     background-position: center;
     background-color: #fff;
     -webkit-background-size: cover;
@@ -71,8 +71,9 @@ b {
 #center_reminder {
     top: -23px;
     position: relative;
-    width: 500px;
+    max-width: 500px;
     margin: 0 auto;
+    overflow: hidden;
 }
 .right_tools button {
     float: right;
@@ -126,13 +127,14 @@ b {
     text-align: center;
     animation: remind 1s ease;
     transition: all 1s ease;
+    max-width: 500px;
 }
 #reminder:before {
-    content: '';
+    content: '\25CF';
 }
 #reminder:hover:before {
     animation: fade 1s ease;
-    content: ' \2714';
+    content: ' \25CB';
 }
 #reminder:hover {
     opacity: 0.5;
@@ -243,7 +245,6 @@ select:focus {
 }
 option {
     -webkit-appearance: none;  /*REMOVES DEFAULT CHROME & SAFARI STYLE*/
-    -moz-appearance: none;
     background-color: #000;
     border: 0 !important;
     padding: 10px;
@@ -306,6 +307,7 @@ button#speech {
     padding-left: 20px;
     padding-right: 20px;
     float: right;
+    text-transform: uppercase;
 }
 .menu {
     border-radius: 2px;
@@ -337,6 +339,9 @@ button#speech {
     position: absolute;
     right: 0;
     bottom: 30;
+}
+button#settings_toggle {
+    z-index: 999999;
 }
 #settings {
     opacity: 0;
@@ -376,6 +381,7 @@ button#add_todo {
     margin: 1px;
     margin-top: 0px;
     margin-bottom: 0px;
+    font-weight: bold;
 }
 .option:hover {
     background-color: #333;
@@ -383,4 +389,39 @@ button#add_todo {
 }
 .ui_icon {
     animation: fade .2s ease;
+}
+a {
+    text-decoration: none;
+}
+input.chbg {
+    border-radius: 500px;
+    font-family: 'raleway' sans-serif;
+    border: 2px dotted #fff;
+    padding: 50px;
+    display: inline;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%; 
+    margin-left: -150px;
+    margin-top: -150px;
+    color: #fff;
+    transition: .6s ease;
+}
+input.chbg::-webkit-file-upload-button {
+    display: none;
+}
+input.chbg::before {
+    font-weight: bold;
+    position: relative;
+    top: 88;
+    left: 26;
+    text-align: center;
+    content: 'DRAG AN IMAGE HERE';
+}
+input.chbg:hover {
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0px 5px 50px -20px #000;
 }
