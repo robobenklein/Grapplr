@@ -1,5 +1,4 @@
 var reminders;
-window.onload = function() {
     var reminders = JSON.parse(localStorage.getItem('remindersLocal'))[0];
     console.log("1" + reminders);
     if (reminders == undefined){
@@ -7,7 +6,6 @@ window.onload = function() {
         document.getElementById("center_tools").style.marginTop = "-10px";
         populateList(reminders);
     }
-}
 function populateList(r){
     document.getElementById("center_reminder").innerHTML = r;
     return r;
