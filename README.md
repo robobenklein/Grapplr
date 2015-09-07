@@ -35,6 +35,10 @@ Available soon as a Chrome and Firefox extension.
 <h3>Post</h3>
 * post *[text item]*
 
+<h3>Remind</h3>
+* remind me to *[text item]*
+* remind me that *[text item]*
+
 <h3>Search</h3>
 * find *[query item]* on *[site name or url (optional)]*
 * search for *[query item]* on *[site name or url (optional)]*
