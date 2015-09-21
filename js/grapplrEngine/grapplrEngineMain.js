@@ -4,62 +4,85 @@
 //License:
 //1. This code may be modified, but all sections of commented code must be left intact.
 //2. You may not redistribute this code (or any other code within the Grapplr engine) in its entirety, but you may redistribute your section of modified code.
-$(document).ready(function(){
+$(document).ready(function() {
+    loadConfig();
     document.getElementById("greeting").innerHTML = "loading...";
-    var t = setTimeout(function(){startTime()},500);
+    var t = setTimeout(function() {
+        startTime()
+    }, 500);
+    var infos = JSON.parse(localStorage.getItem('infoStorage'));
+    var name = infos[0];
+    var birthday = infos[1];
+    console.log(birthday);
+    var event = "";
+
     function startTime() {
         var today = new Date();
         var h = today.getHours();
         var m = today.getMinutes();
         var date = today.toDateString();
-//        var h = 11;
-//        var m = 30;
         h = checkHours(h);
         m = checkMinutes(m);
-        document.getElementById('clock').innerHTML = date + " <b>"+h+":"+m+" "+tod+"</b>";
-        var t = setTimeout(function(){startTime()}, 1);
+        document.getElementById('clock').innerHTML = date + " <b>" + h + ":" + m + " " + tod + "</b>";
+        var t = setTimeout(function() {
+            startTime()
+        }, 1);
         h = setGreeting(h);
+//        if(date.indexOf(birthday != -1)){
+//           event = "Happy Birthday!";
+//        } else {
+//            event = "nope";
+//        }
     }
 
     function checkMinutes(i) {
-        if (i<10) {i = "0" + i};
+        if (i < 10) {
+            i = "0" + i
+        };
         return i;
     }
+
     function checkHours(i) {
-        if (i>=12) {
-            if(i == 12){
-                i =12;
+        if (i >= 12) {
+            if (i == 12) {
+                i = 12;
                 tod = "PM";
             } else {
-                i = i-12; tod = "PM";
+                i = i - 12;
+                tod = "PM";
             }
         }
         return i;
     }
-    function setGreeting(i){
-        if (tod == "PM"){
-            if (i == 12){
+    
+    function setGreeting(i) {
+        if (tod == "PM") {
+            if (i == 12) {
                 document.getElementById("greeting").innerHTML = "Grab a bite!";
-            } else if(i > 4){
-                document.getElementById("greeting").innerHTML = "Good evening";
+            } else if (i > 4) {
+                document.getElementById("greeting").innerHTML = "Good evening, " + name + ". " + event;
             } else {
-                document.getElementById("greeting").innerHTML = "Good afternoon";
+                document.getElementById("greeting").innerHTML = "Good afternoon, " + name + ". " + event;
             }
         } else {
-            document.getElementById("greeting").innerHTML = "Good morning";
+            document.getElementById("greeting").innerHTML = "Good morning, " + name + ". " + event;
         }
         return i;
     }
     $("#query").focus();
-    var e = $.Event("keydown", { keyCode: 9}); //"keydown" if that's what you're doing
+    var e = $.Event("keydown", {
+        keyCode: 9
+    }); //"keydown" if that's what you're doing
     $("html").trigger(e);
 });
 $('#doots').click(function() {
     unloadMenus();
 });
- document.getElementById('apps').onclick = function() {
-        chrome.tabs.update({ url: 'chrome://apps/'});
-    }
+document.getElementById('apps').onclick = function() {
+    chrome.tabs.update({
+        url: 'chrome://apps/'
+    });
+}
 var query = document.getElementById("query").value;
 
 //Custom Command Step 1:
@@ -87,23 +110,23 @@ document.onkeyup = function(event) {
     var keyword = query.split(" ", 2)[0];
     var two_keywords = queryWords[0] + " " + queryWords[1];
     var three_keywords = queryWords[0] + " " + queryWords[1] + " " + queryWords[2];
-    
+
     if (event.keyCode == 32) {
-//        speak();
+        //        speak();
     } else {
-//        $('#query').focus();
-        
-//      Step 2:
-//      Enter Key Activation
-//      Enter new lines after last else if
-//      Example:
-//
-//      ...
-//      } else if (CommandToggle == 1) {
-//          load();
-//          function();
-//      } else {...
-        
+        //        $('#query').focus();
+
+        //      Step 2:
+        //      Enter Key Activation
+        //      Enter new lines after last else if
+        //      Example:
+        //
+        //      ...
+        //      } else if (CommandToggle == 1) {
+        //          load();
+        //          function();
+        //      } else {...
+
         if (event.keyCode == 13) {
             if (FindToggle == 1) {
                 load();
@@ -147,21 +170,21 @@ document.onkeyup = function(event) {
             document.getElementById("controls").style.width = "0px";
             document.getElementById("remind").style.display = "none";
         }
-        
-//      Step 3:
-//      Check query box for index of command
-//      Then set fuction toggle to 1
-//      Enter new lines after last else if
-//      Example: 
-//
-//      ...
-//      } else if (query.indexOf("command") != -1 || query.indexOf("command kommand") != -1) {
-//          clearall();
-//          CommandToggle = 1;
-//          document.getElementById("iconID").style.display = "inline-block";
-//          document.getElementById("controls").style.width = "60px";
-//      } else { ...
-        
+
+        //      Step 3:
+        //      Check query box for index of command
+        //      Then set fuction toggle to 1
+        //      Enter new lines after last else if
+        //      Example: 
+        //
+        //      ...
+        //      } else if (query.indexOf("command") != -1 || query.indexOf("command kommand") != -1) {
+        //          clearall();
+        //          CommandToggle = 1;
+        //          document.getElementById("iconID").style.display = "inline-block";
+        //          document.getElementById("controls").style.width = "60px";
+        //      } else { ...
+
         if (keyword.indexOf("download") != -1 || keyword.indexOf("get") != -1) {
             clearall();
             DownloadToggle = 1;
@@ -170,7 +193,7 @@ document.onkeyup = function(event) {
         } else if (keyword.indexOf("gcl") != -1) {
             document.getElementById("gcl").style.display = "inline-block";
             document.getElementById("controls").style.width = "60px";
-        } else if (keyword.indexOf("find") != -1 || ( two_keywords.indexOf("look for") != -1) || ( two_keywords.indexOf("search for") != -1)) {
+        } else if (keyword.indexOf("find") != -1 || (two_keywords.indexOf("look for") != -1) || (two_keywords.indexOf("search for") != -1)) {
             clearall();
             FindToggle = 1;
             document.getElementById("sb").style.display = "inline-block";
@@ -200,7 +223,7 @@ document.onkeyup = function(event) {
             qToggle = 1;
             document.getElementById("q").style.display = "inline-block";
             document.getElementById("controls").style.width = "60px";
-        } else if (two_keywords.indexOf("go to") != -1 ||  keyword.indexOf("open") != -1 ||  two_keywords.indexOf("navigate to") != -1) {
+        } else if (two_keywords.indexOf("go to") != -1 || keyword.indexOf("open") != -1 || two_keywords.indexOf("navigate to") != -1) {
             clearall();
             NavToggle = 1;
             document.getElementById("nav").style.display = "inline-block";
@@ -249,11 +272,11 @@ function clearall() {
     CalcToggle = 0;
     PlotToggle = 0;
     RemindToggle = 0;
-    
-//  Step:
-//  Set function toggle to off here
-//  Example:
-//  CommandToggle = 0;
+
+    //  Step:
+    //  Set function toggle to off here
+    //  Example:
+    //  CommandToggle = 0;
 
     document.getElementById("gcl").style.display = "none";
     document.getElementById("controls").style.width = "0px";
@@ -269,43 +292,33 @@ function clearall() {
     document.getElementById("calc").style.display = "none";
     document.getElementById("plot").style.display = "none";
     document.getElementById("remind").style.display = "none";
-    
-//  Step 5 (last step on this file):
-//  Make command icon disappear here
-//  Example:
-//  document.getElementById("iconID").style.display = "none";
-    
+
+    //  Step 5 (last step on this file):
+    //  Make command icon disappear here
+    //  Example:
+    //  document.getElementById("iconID").style.display = "none";
+
 }
 
 //Stop
 
 function load() {
     clearall();
-//    document.getElementById("speech").style.display = "none";
+    //    document.getElementById("speech").style.display = "none";
     document.getElementById("query").style.display = "none";
     document.getElementById("load").style.display = "inline-block";
 }
+
 function unload() {
     clearall();
-//    document.getElementById("speech").style.display = "inline";
+    //    document.getElementById("speech").style.display = "inline";
     document.getElementById("query").style.display = "inline";
     document.getElementById("load").style.display = "none";
 }
+
 function getKeywords() {
     var queryWords = query.split(" ");
     var keyword = query.split(" ", 2)[0];
     var two_keywords = queryWords[0] + " " + queryWords[1];
     var three_keywords = queryWords[0] + " " + queryWords[1] + " " + queryWords[2];
-}
-if (annyang) {
-    var changeText = function(stuff) {
-        if (stuff.toLowerCase().match(/(clear\s(the)?\stext(\s)?(area|box)|(clear|delete)\severything)/g)) {
-            document.getElementById("query").value = "";
-        }
-        document.getElementById("query").value += stuff;
-    }
-    var commands = {
-        "*stuff": changeText
-    }
-    annyang.addCommands(commands);
 }

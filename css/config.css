@@ -1,0 +1,139 @@
+@keyframes spin {
+    from {background-position: 0px;}
+   to { background-position: -1980px; }
+}
+@keyframes slideslide {
+    from {opacity: 0; left: 600;}
+   to {opacity: 1; left: 0;}
+}
+@keyframes blur {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+body{
+    background-image: url("../images/default_wallpaper/grapplrdefault1.png");
+    animation: none;
+    background-position: center;
+    background-color: #fff;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+}
+.dots {
+    min-height: 100%;
+    min-width: 100%;
+/*    background-color: #000;*/
+/*    opacity: .7;*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.window {
+    box-shadow: 0px 20px 50px -30px #000;
+    background-color: #fff;
+    text-align: center;
+    overflow: hidden;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -150px;
+    margin-top: -150px;
+    border-radius: 200px;
+}
+.slide {
+    border-radius: 150px;
+    width: auto;
+    margin: 0 auto;
+    position: relative;
+    animation: slideslide 1s ease;
+}
+#slide1 {
+    background-color: #fff;
+    animation: none;
+    display: block;
+}
+#slide2 {
+    margin-top: 80px;
+    display: none;
+}
+#slide3 {
+    margin-top: 120px;
+    display: none;
+}
+.logoani {
+    position: relative;
+    height: 90px;
+    width: 90px;
+    animation: spin 1.2s steps(22);
+    background-image: url(../images/loading/spinning.png);
+    -webkit-filter: invert(1);
+    margin: 50 auto;
+}
+button {
+    font-weight: bold;
+    border: 0px;
+    padding: 20px;
+    border-bottom: 0px solid #000;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    color: #000;
+    transition: .2s all;
+    display: block;
+    font-size: 15pt;
+}
+button:active {
+    background-color: #000;
+    color: #000;
+}
+button:focus {
+    outline:none;
+}
+button:hover {
+    border-bottom: 3px solid #000;
+}
+
+input[type=text]{
+    font-size: 19pt;
+    border: none;
+    padding: 20px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    background-color: rgba(0,0,0,0);
+    color: #000;
+    text-align: center;
+}
+::-webkit-input-placeholder {
+   color: #aaa;
+}
+select {
+    top: 100;
+    left: 43;
+    color: #fff;
+    outline: none;
+    border: 0px;
+    border: 2px solid #fff;
+    padding: 20px;
+}
+option {
+    color: #000;
+}
+#get_started {
+    animation: blur 2s ease;
+    margin: 0 auto;
+    margin-top: 41%;
+}
+#next2 {
+    margin: 0 auto;
+}
+#finish {
+    margin: 0 auto;
+

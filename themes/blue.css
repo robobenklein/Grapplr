@@ -1,0 +1,8 @@
+.menu_title {
+    color: #fff;
+    background-color: #3598d9;
+}
+#reminder:hover {
+    opacity: 1;
+    color: #47baeb;
+}

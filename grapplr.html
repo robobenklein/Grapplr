@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<link type="text/css" rel="stylesheet" href="css/search.css">
-        <link type="text/css" rel="stylesheet" href="themes/ios7.css">
+<!--        <link type="text/css" rel="stylesheet" href="themes/blue.css">-->
         <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
         <script src="js/jquery-1.11.3.min.js"></script>
@@ -9,7 +9,8 @@
 		<title>New Tab</title>
 	</head>
 	<body>
-        <div class="dots"></div>
+        <div id="bg" class="bg"></div>
+        <div id="dots" class="dots"></div>
         <div class="overlay" id="overlay"></div>
         <div class="grappl">
             <div class="loadbox">
@@ -35,10 +36,11 @@
         </div>
         <div class="toolbar">
             <div class="left_tools">
-                <a id="apps"><button><img class="ui_icon" src="images/apps.png"></button></a>
+                <a id="apps"><button><img id="tool" class="ui_icon" src="images/apps.png"></button></a>
+                <a id="apps"><button><img id="bookmarks_toggle" class="ui_icon" src="images/bookmarks.png"></button></a>
             </div>
             <div class="right_tools">
-                <button id="settings_toggle"><img class="ui_icon" src="images/settings.png"></button>
+                <button id="settings_toggle"><img class="ui_icon" src="images/context.png"></button>
               <div id="clock"></div>
             </div>
         </div>
@@ -48,14 +50,65 @@
         <div id="center_reminder">
         </div>
         <div class="menu" id="settings">
-            <div class="menu_title">SETTINGS</div>
-            <a href="chbg.html"><div class="option">CHANGE BACKGROUND IMAGE</div></a>
-            <div class="option">EDIT FAVORITES</div>
-            <div class="option" style="margin-bottom: 1px;">HELP</div>
+            <div class="menu_title"><img src="images/grapplr_logo_black.png"></div>
+            <button class="option" id="custo_toggle">CUSTOMIZE</button>
+            <button class="option" id="sites_toggle">GRAPPLED SITES</button>
+            <button class="option" id="cs_toggle">CHROME</button>
+            <button class="option" style="margin-bottom: 1px;">HELP</button>
+        </div>
+        <div class="menu" id="customize">
+            <div class="menu_title">CUSTOMIZE</div>
+            <div class="scroll">
+                <div class="section">
+                    <div class="sub_title">wallpaper</div>
+                    <input accept="image/*" type="file" id="changebg" class="chbg">
+                </div>
+                <div class="section">
+                    <div class="sub_title">blur</div>
+                    <input id="blur" type="range" min="0" max="50">
+                </div>
+                <div class="section">
+                    <div class="sub_title">overlay</div>
+                    <div id="nodots" class="select_bubble"></div>
+                    <div id="setdots" class="select_bubble"></div>
+                    <div id="setstripe" class="select_bubble"></div>
+                </div>
+                <div class="section">
+                    <div class="sub_title">darkness</div>
+                    <input id="opacity" type="range" min="40" max="70">
+                </div>
+                <div class="section" style="margin-bottom: 70px;">
+                    <div class="sub_title">color theme</div>
+                    <div id="black" class="select_bubble"></div>
+                    <div id="red" class="select_bubble"></div>
+                    <div id="orange" class="select_bubble"></div>
+                    <div id="yellow" class="select_bubble"></div>
+                    <div id="sand" class="select_bubble"></div>
+                    <div id="lavender" class="select_bubble"></div>
+                    <div id="teal" class="select_bubble"></div>
+                    <div id="blue" class="select_bubble"></div>
+                    <div id="green" class="select_bubble"></div>
+                    <div id="mint" class="select_bubble"></div>
+                    <div id="darkGreen" class="select_bubble"></div>
+                    <div id="purple" class="select_bubble"></div>
+                    <div id="plum" class="select_bubble"></div>
+                    <div id="pink" class="select_bubble"></div>
+                    <div id="lime" class="select_bubble"></div>
+                    <div id="maroon" class="select_bubble"></div>
+                </div>
+            </div>
+        </div>
+        <div class="menu" id="chrome_settings">
+            <div class="menu_title"><img src="images/main/chrome.png"></div>
+            <div class="option">SETTINGS</div>
+            <div class="option">HISTORY</div>
+            <div class="option">EXTENSIONS</div>
+        </div>
+        <div class="menu" id="bookmarks">
+            <div class="menu_title">BOOKMARKS</div>
         </div>
         <div class="toolbar" id="bottomtoolbar">
             <div class="left_tools">
-                <img src="images/grapplr_logo.png">
             </div>
             <div class="center_tools">
             </div>
@@ -66,6 +119,7 @@
         </div>
 	</body>
     <grapplrEngine>
+        <script language="javascript" type="text/javascript" src="js/grapplrEngine/config.js"></script>
         <script language="javascript" type="text/javascript" src="js/grapplrEngine/grapplrEngineMain.js"></script>
         <script language="javascript" type="text/javascript" src="js/grapplrEngine/gcl.js"></script>
         <script language="javascript" type="text/javascript" src="js/grapplrEngine/functions/nav.js"></script>
@@ -79,6 +133,6 @@
         <script language="javascript" type="text/javascript" src="js/grapplrEngine/functions/remind.js"></script>
         <!--Link custom scripts here-->
         <script language="javascript" type="text/javascript" src="js/grapplrEngine/menus.js"></script>
-        <script language="javascript" type="text/javascript" src="js/grapplrEngine/setbg.js"></script>
+        <script language="javascript" type="text/javascript" src="js/grapplrEngine/customize.js"></script>
     </grapplrEngine>
 </html>
