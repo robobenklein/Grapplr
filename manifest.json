@@ -2,8 +2,8 @@
   "manifest_version": 2,
 
   "name": "Grapplr",
-  "description": "An intelligent, customizable, and beautiful new-tab page with useful tools",
-  "version": "0.3",
+  "description": "An intelligent, customizable, and beautiful new-tab page.",
+  "version": "0.1.4",
 
   "browser_action": {
     "default_icon": "icon.png",

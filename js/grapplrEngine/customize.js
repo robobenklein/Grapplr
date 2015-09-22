@@ -5,8 +5,8 @@ window.onload = function(){
     document.getElementById("dots").style.opacity = opacity;
     var opacityValue = opacity.replace(/./,"");
     document.getElementById("opacity").value = opacityValue;
-    
     var blur = localStorage.getItem('blurVal');
+    document.getElementById("blur").value = blur;
     document.getElementById("bg").setAttribute("style","-webkit-filter: blur(" + blur + "px); background-image:" + backgroundImage);
     document.getElementById("changebg").style.backgroundImage = backgroundImage;
 }
@@ -52,4 +52,7 @@ document.getElementById("blur").onmousemove = function(){
     var blur = document.getElementById("blur").value;
     document.getElementById("bg").setAttribute("style","-webkit-filter: blur(" + blur + "px); background-image:" + backgroundImage);
     localStorage.setItem("blurVal", blur);
+}
+document.getElementsByClassName("select_bubble").onmousemove = function(){
+    alert("hi!");
 }
