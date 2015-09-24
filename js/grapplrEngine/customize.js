@@ -37,6 +37,8 @@ document.getElementById("setdots").onclick = function(){
 document.getElementById("nodots").onclick = function(){
     document.getElementById("dots").style.backgroundColor = "#000";
     document.getElementById("dots").style.backgroundImage = "url(../images/dot_overlay.png";
+    var overlay = "background-image: url(../images/dot_overlay.png; background-color: #000;";
+    localStorage.setItem
 }
 document.getElementById("setstripe").onclick = function(){
     document.getElementById("dots").style.backgroundColor = "transparent";

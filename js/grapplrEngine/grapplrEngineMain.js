@@ -5,11 +5,31 @@
 //1. This code may be modified, but all sections of commented code must be left intact.
 //2. You may not redistribute this code (or any other code within the Grapplr engine) in its entirety, but you may redistribute your section of modified code.
 $(document).ready(function() {
+    var idleTime = 0;
+    
+    setInterval(timerIncrement, 1000);
+    document.onmousemove = function(){
+        idleTime = 0;
+    }
+    document.onkeydown = function(){
+        idleTime = 0;
+    }
+    function timerIncrement(){
+        idleTime = idleTime+1;
+        console.log(idleTime);
+        if(idleTime > 29){
+            document.getElementById("overlay").style.visibility = "visible";
+            document.getElementById("bigclock").style.opacity = 1;
+            document.getElementById("bigclock").style.top = "50%";
+            document.getElementById("centerMain").style.opacity = 0;
+            document.getElementById("centerMain").style.top = "50%";
+        }
+    }
     loadConfig();
     document.getElementById("greeting").innerHTML = "loading...";
     var t = setTimeout(function() {
         startTime()
-    }, 500);
+    }, 10);
     var infos = JSON.parse(localStorage.getItem('infoStorage'));
     var name = infos[0];
     var birthday = infos[1];
@@ -24,6 +44,7 @@ $(document).ready(function() {
         h = checkHours(h);
         m = checkMinutes(m);
         document.getElementById('clock').innerHTML = date + " <b>" + h + ":" + m + " " + tod + "</b>";
+        document.getElementById('bigclock').innerHTML = h + ":" + m;
         var t = setTimeout(function() {
             startTime()
         }, 1);
@@ -272,8 +293,7 @@ function clearall() {
     CalcToggle = 0;
     PlotToggle = 0;
     RemindToggle = 0;
-
-    //  Step:
+    //  Step 4:
     //  Set function toggle to off here
     //  Example:
     //  CommandToggle = 0;
@@ -321,4 +341,10 @@ function getKeywords() {
     var keyword = query.split(" ", 2)[0];
     var two_keywords = queryWords[0] + " " + queryWords[1];
     var three_keywords = queryWords[0] + " " + queryWords[1] + " " + queryWords[2];
+}
+document.getElementById("overlay").onmousemove = function(e) {
+    document.getElementById("bigclock").style.opacity = "0";
+     document.getElementById("bigclock").style.top = "45%";
+    document.getElementById("centerMain").style.opacity = "1";
+    document.getElementById("centerMain").style.top = "45%";
 }
