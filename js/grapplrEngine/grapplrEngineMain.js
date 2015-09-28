@@ -24,6 +24,9 @@ $(document).ready(function() {
             document.getElementById("centerMain").style.opacity = 0;
             document.getElementById("centerMain").style.top = "50%";
         }
+        if(idleTime > 119){
+            document.getElementById("dots").style.opacity = ".9";
+        }
     }
     loadConfig();
     document.getElementById("greeting").innerHTML = "loading...";
@@ -347,4 +350,6 @@ document.getElementById("overlay").onmousemove = function(e) {
      document.getElementById("bigclock").style.top = "45%";
     document.getElementById("centerMain").style.opacity = "1";
     document.getElementById("centerMain").style.top = "45%";
+    var opacity = localStorage.getItem('opacityVal');
+    document.getElementById("dots").style.opacity = opacity;
 }

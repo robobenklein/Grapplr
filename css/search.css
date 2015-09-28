@@ -101,7 +101,7 @@ b {
     background-image: none;
     background-color: #000;
     opacity: 0.4;
-    transition: background .5s ease;
+    transition: all .5s ease;
 }
 .overlay {
     min-height: 100%;
