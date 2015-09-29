@@ -4,101 +4,6 @@
 //License:
 //1. This code may be modified, but all sections of commented code must be left intact.
 //2. You may not redistribute this code (or any other code within the Grapplr engine) in its entirety, but you may redistribute your section of modified code.
-$(document).ready(function() {
-    var idleTime = 0;
-    
-    setInterval(timerIncrement, 1000);
-    document.onmousemove = function(){
-        idleTime = 0;
-    }
-    document.onkeydown = function(){
-        idleTime = 0;
-    }
-    function timerIncrement(){
-        idleTime = idleTime+1;
-        console.log(idleTime);
-        if(idleTime > 29){
-            document.getElementById("overlay").style.visibility = "visible";
-            document.getElementById("bigclock").style.opacity = 1;
-            document.getElementById("bigclock").style.top = "50%";
-            document.getElementById("centerMain").style.opacity = 0;
-            document.getElementById("centerMain").style.top = "50%";
-        }
-        if(idleTime > 119){
-            document.getElementById("dots").style.opacity = ".9";
-        }
-    }
-    loadConfig();
-    document.getElementById("greeting").innerHTML = "loading...";
-    var t = setTimeout(function() {
-        startTime()
-    }, 10);
-    var infos = JSON.parse(localStorage.getItem('infoStorage'));
-    var name = infos[0];
-    var birthday = infos[1];
-    console.log(birthday);
-    var event = "";
-
-    function startTime() {
-        var today = new Date();
-        var h = today.getHours();
-        var m = today.getMinutes();
-        var date = today.toDateString();
-        h = checkHours(h);
-        m = checkMinutes(m);
-        document.getElementById('clock').innerHTML = date + " <b>" + h + ":" + m + " " + tod + "</b>";
-        document.getElementById('bigclock').innerHTML = h + ":" + m;
-        var t = setTimeout(function() {
-            startTime()
-        }, 1);
-        h = setGreeting(h);
-//        if(date.indexOf(birthday != -1)){
-//           event = "Happy Birthday!";
-//        } else {
-//            event = "nope";
-//        }
-    }
-
-    function checkMinutes(i) {
-        if (i < 10) {
-            i = "0" + i
-        };
-        return i;
-    }
-
-    function checkHours(i) {
-        if (i >= 12) {
-            if (i == 12) {
-                i = 12;
-                tod = "PM";
-            } else {
-                i = i - 12;
-                tod = "PM";
-            }
-        }
-        return i;
-    }
-    
-    function setGreeting(i) {
-        if (tod == "PM") {
-            if (i == 12) {
-                document.getElementById("greeting").innerHTML = "Grab a bite!";
-            } else if (i > 4) {
-                document.getElementById("greeting").innerHTML = "Good evening, " + name + ". " + event;
-            } else {
-                document.getElementById("greeting").innerHTML = "Good afternoon, " + name + ". " + event;
-            }
-        } else {
-            document.getElementById("greeting").innerHTML = "Good morning, " + name + ". " + event;
-        }
-        return i;
-    }
-    $("#query").focus();
-    var e = $.Event("keydown", {
-        keyCode: 9
-    }); //"keydown" if that's what you're doing
-    $("html").trigger(e);
-});
 $('#doots').click(function() {
     unloadMenus();
 });
@@ -347,9 +252,106 @@ function getKeywords() {
 }
 document.getElementById("overlay").onmousemove = function(e) {
     document.getElementById("bigclock").style.opacity = "0";
-     document.getElementById("bigclock").style.top = "45%";
+    document.getElementById("bigclock").style.top = "45%";
     document.getElementById("centerMain").style.opacity = "1";
     document.getElementById("centerMain").style.top = "45%";
     var opacity = localStorage.getItem('opacityVal');
     document.getElementById("dots").style.opacity = opacity;
 }
+$(document).ready(function() {
+    var idleTime = 0;
+
+    setInterval(timerIncrement, 59999);
+    document.onmousemove = function() {
+        idleTime = 0;
+    }
+    document.onkeydown = function() {
+        idleTime = 0;
+    }
+
+    function timerIncrement() {
+        idleTime = idleTime + 1;
+        if (idleTime > 0) {
+            document.getElementById("overlay").style.visibility = "visible";
+            document.getElementById("bigclock").style.opacity = 1;
+            document.getElementById("bigclock").style.top = "50%";
+            document.getElementById("centerMain").style.opacity = 0;
+            document.getElementById("centerMain").style.top = "50%";
+        }
+        if (idleTime > 1) {
+            document.getElementById("dots").style.opacity = ".9";
+        }
+    }
+
+    startTime();
+    loadConfig();
+    document.getElementById("greeting").innerHTML = "loading...";
+    var t = setTimeout(function() {
+        startTime()
+    }, 600000);
+    var infos = JSON.parse(localStorage.getItem('infoStorage'));
+    var name = infos[0];
+    var birthday = infos[1];
+    console.log(birthday);
+    var event = "";
+
+    function startTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var date = today.toDateString();
+        h = checkHours(h);
+        m = checkMinutes(m);
+        document.getElementById('clock').innerHTML = date + " <b>" + h + ":" + m + " " + tod + "</b>";
+        document.getElementById('bigclock').innerHTML = h + ":" + m;
+        var t = setTimeout(function() {
+            startTime();
+        }, 1);
+        h = setGreeting(h);
+        //        if(date.indexOf(birthday != -1)){
+        //           event = "Happy Birthday!";
+        //        } else {
+        //            event = "nope";
+        //        }
+    }
+
+    function checkMinutes(i) {
+        if (i < 10) {
+            i = "0" + i
+        };
+        return i;
+    }
+
+    function checkHours(i) {
+        if (i >= 12) {
+            if (i == 12) {
+                i = 12;
+                tod = "PM";
+            } else {
+                i = i - 12;
+                tod = "PM";
+            }
+        }
+        return i;
+    }
+
+    function setGreeting(i) {
+        if (tod == "PM") {
+            if (i == 12) {
+                document.getElementById("greeting").innerHTML = "Grab a bite!";
+            } else if (i > 4) {
+                document.getElementById("greeting").innerHTML = "Good evening, " + name + ". " + event;
+            } else {
+                document.getElementById("greeting").innerHTML = "Good afternoon, " + name + ". " + event;
+            }
+        } else {
+            document.getElementById("greeting").innerHTML = "Good morning, " + name + ". " + event;
+        }
+        return i;
+    }
+    $("#query").focus();
+    var e = $.Event("keydown", {
+        keyCode: 9
+    }); //"keydown" if that's what you're doing
+    $("html").trigger(e);
+});
