@@ -2,7 +2,12 @@ $(document).ready(function() {
     var currentUrl
     document.onkeyup = function(event){
         if(event.keyCode == 38){
-            var currentUrl = { active: true, currentWindow: true };
+            var query = { active: true, currentWindow: true };
+            function callback(tabs) {
+                var currentTab = tabs[0];
+                console.log(currentTab);
+            }
+            chrome.tabs.query(query, callback);
             alert(currentUrl);
             var alias = document.getElementById("aliasInput").value;
 //            addAlias(alias,value);

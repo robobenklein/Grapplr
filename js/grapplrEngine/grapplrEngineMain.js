@@ -285,16 +285,7 @@ $(document).ready(function() {
 
     startTime();
     loadConfig();
-    document.getElementById("greeting").innerHTML = "loading...";
-    var t = setTimeout(function() {
-        startTime()
-    }, 600000);
-    var infos = JSON.parse(localStorage.getItem('infoStorage'));
-    var name = infos[0];
-    var birthday = infos[1];
-    console.log(birthday);
-    var event = "";
-
+//    document.getElementById("greeting").innerHTML = "loading...";
     function startTime() {
         var today = new Date();
         var h = today.getHours();
@@ -304,15 +295,10 @@ $(document).ready(function() {
         m = checkMinutes(m);
         document.getElementById('clock').innerHTML = date + " <b>" + h + ":" + m + " " + tod + "</b>";
         document.getElementById('bigclock').innerHTML = h + ":" + m;
-        var t = setTimeout(function() {
-            startTime();
-        }, 1);
         h = setGreeting(h);
-        //        if(date.indexOf(birthday != -1)){
-        //           event = "Happy Birthday!";
-        //        } else {
-        //            event = "nope";
-        //        }
+        setTimeout(function() {
+            startTime();
+        }, 20000);
     }
 
     function checkMinutes(i) {
@@ -336,16 +322,18 @@ $(document).ready(function() {
     }
 
     function setGreeting(i) {
+        var infos = JSON.parse(localStorage.getItem('infoStorage'));
+        var name = infos[0];
         if (tod == "PM") {
             if (i == 12) {
                 document.getElementById("greeting").innerHTML = "Grab a bite!";
             } else if (i > 4) {
-                document.getElementById("greeting").innerHTML = "Good evening, " + name + ". " + event;
+                document.getElementById("greeting").innerHTML = "Good evening, " + name + ".";
             } else {
-                document.getElementById("greeting").innerHTML = "Good afternoon, " + name + ". " + event;
+                document.getElementById("greeting").innerHTML = "Good afternoon, " + name + ".";
             }
         } else {
-            document.getElementById("greeting").innerHTML = "Good morning, " + name + ". " + event;
+            document.getElementById("greeting").innerHTML = "Good morning, " + name + ".";
         }
         return i;
     }

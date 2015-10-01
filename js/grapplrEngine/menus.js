@@ -34,6 +34,8 @@ function unloadMenus(){
     document.getElementById("bookmarks").style.left = "-310";
     document.getElementById("chrome_settings").style.right = "-310";
     document.getElementById("customize").style.right = "-310";
+    var remCollapse = document.getElementById('AllReminders').clientHeight;
+    document.getElementById("AllReminders").style.top = "-" + remCollapse;
 }
 document.getElementById("overlay").onclick = function (){
     unloadMenus();
