@@ -16,7 +16,6 @@ function remind(){
     var request = document.getElementById("query").value;
     var reminder;
     var reminders = [];
-    document.getElementById("center_reminder").style.visibility = "visible";
     document.getElementById("query").value = "";
     if (request.indexOf("remind me to") != -1){
         reminder = request.match("remind me to(.*)")[1];
@@ -28,6 +27,7 @@ function remind(){
         reminder = reminder.replace(/ i'm /," you're ");
         reminder = reminder.replace(/ myself /," yourself ");
         var task = "remember to" + reminder;
+        document.getElementById("center_reminder").style.visibility = "visible";
         document.getElementById("center_reminder").innerHTML = "<div id='reminder'>" + task + "</div>";
     }
     if (request.indexOf("remind me that") != -1){
@@ -40,6 +40,7 @@ function remind(){
         reminder = reminder.replace(/ i'm /," you're ");
         reminder = reminder.replace(/ myself /," yourself ");
         var task = "<div id='reminder'> remember that " + reminder + "</div>";
+        document.getElementById("center_reminder").style.visibility = "visible";
         document.getElementById("center_reminder").innerHTML = task;
         
     }
@@ -54,6 +55,7 @@ function remind(){
         reminder = reminder.replace(/ myself /," yourself ");
         reminder = reminder + " ";
         var task = "<div id='reminder'> remember " + reminder + "</div>";
+        document.getElementById("center_reminder").style.visibility = "visible";
         document.getElementById("center_reminder").innerHTML = task;
         
     }
@@ -72,24 +74,36 @@ function remind(){
     }
 }
 document.getElementById("center_reminder").onclick = function(){
+    var remCollapse = document.getElementById('AllReminders').clientHeight;
+    document.getElementById("AllReminders").style.top = "-" + remCollapse;
     reminders = JSON.parse(localStorage.getItem('remindersLocal'));
-    if (reminders.length >= 1){
-        var remCollapse = document.getElementById('AllReminders').clientHeight;
-        document.getElementById("AllReminders").style.top = "-" + remCollapse;
-        document.getElementById("overlay").style.visibility = "hidden";
+    if (reminders.length > 0){
         reminders.splice(0,1);
         localStorage.setItem('remindersLocal', JSON.stringify(reminders));
         document.getElementById("center_reminder").innerHTML = '<div id="reminder"></div>';
         reminders = JSON.parse(localStorage.getItem('remindersLocal'))[0];
         populateList(reminders);
-    }
-    if (reminders == undefined){
-        var remCollapse = document.getElementById('AllReminders').clientHeight;
-        document.getElementById("AllReminders").style.top = "-" + remCollapse;
-        document.getElementById("overlay").style.visibility = "hidden";
+    } if (reminders == undefined){
         document.getElementById("center_reminder").style.visibility = "hidden";
         document.getElementById("center_tools").style.marginTop = "0px";
     }
+//    if (reminders.length > 1000){
+//        alert("ay");    
+//        var remCollapse = document.getElementById('AllReminders').clientHeight;
+//        document.getElementById("AllReminders").style.top = "-" + remCollapse;
+//        document.getElementById("overlay").style.visibility = "hidden";
+//        reminders.splice(0,1);
+//        localStorage.setItem('remindersLocal', JSON.stringify(reminders));
+//        document.getElementById("center_reminder").innerHTML = '<div id="reminder"></div>';
+//        reminders = JSON.parse(localStorage.getItem('remindersLocal'))[0];
+//        populateList(reminders);
+//    } else {
+//        var remCollapse = document.getElementById('AllReminders').clientHeight;
+//        document.getElementById("AllReminders").style.top = "-" + remCollapse;
+//        document.getElementById("overlay").style.visibility = "hidden";
+//        document.getElementById("center_reminder").style.visibility = "hidden";
+//        document.getElementById("center_tools").style.marginTop = "0px";
+//    }
 }
 document.getElementById("center_reminder").onmouseover = function(){
 }
@@ -114,7 +128,6 @@ document.getElementById("center_reminder").onmouseleave = function(){
 }
 document.getElementById("AllReminders").onmouseleave = function (){
     var remCollapse = document.getElementById('AllReminders').clientHeight;
-    document.getElementById("AllReminders").style.top = "-" + remCollapse;
-    document.getElementById("overlay").style.visibility = "hidden";
+    document.getElementById("AllReminders").style.top = "-" + remCollapse;  
 }
     

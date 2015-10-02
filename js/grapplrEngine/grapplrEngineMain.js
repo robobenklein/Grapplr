@@ -7,11 +7,6 @@
 $('#doots').click(function() {
     unloadMenus();
 });
-document.getElementById('apps').onclick = function() {
-    chrome.tabs.update({
-        url: 'chrome://apps/'
-    });
-}
 var query = document.getElementById("query").value;
 
 //Custom Command Step 1:
@@ -90,14 +85,19 @@ document.onkeyup = function(event) {
                 load();
                 plot();
             } else if (RemindToggle == 1) {
-                load();
+                clearall();
                 remind();
             } else {
                 search();
                 console.log("searching");
             }
+            var query = document.getElementById("query").value;
+            var query = query.toLowerCase();
+            var queryWords = query.split(" ");
+            var keyword = query.split(" ", 2)[0];
+            var two_keywords = queryWords[0] + " " + queryWords[1];
+            var three_keywords = queryWords[0] + " " + queryWords[1] + " " + queryWords[2];
             document.getElementById("controls").style.width = "0px";
-            document.getElementById("remind").style.display = "none";
         }
 
         //      Step 3:
@@ -188,6 +188,36 @@ document.onkeyup = function(event) {
     }
 }
 
+//Stop
+
+function load() {
+    clearall();
+    //    document.getElementById("speech").style.display = "none";
+    document.getElementById("query").style.display = "none";
+    document.getElementById("load").style.display = "inline-block";
+}
+
+function unload() {
+    clearall();
+    //    document.getElementById("speech").style.display = "inline";
+    document.getElementById("query").style.display = "inline";
+    document.getElementById("load").style.display = "none";
+}
+
+function getKeywords() {
+    var queryWords = query.split(" ");
+    var keyword = query.split(" ", 2)[0];
+    var two_keywords = queryWords[0] + " " + queryWords[1];
+    var three_keywords = queryWords[0] + " " + queryWords[1] + " " + queryWords[2];
+}
+document.getElementById("overlay").onmousemove = function(e) {
+    document.getElementById("bigclock").style.opacity = "0";
+    document.getElementById("bigclock").style.top = "45%";
+    document.getElementById("centerMain").style.opacity = "1";
+    document.getElementById("centerMain").style.top = "45%";
+    var opacity = localStorage.getItem('opacityVal');
+    document.getElementById("dots").style.opacity = opacity;
+}
 function clearall() {
     DownloadToggle = 0;
     FindToggle = 0;
@@ -227,47 +257,21 @@ function clearall() {
     //  document.getElementById("iconID").style.display = "none";
 
 }
-
-//Stop
-
-function load() {
-    clearall();
-    //    document.getElementById("speech").style.display = "none";
-    document.getElementById("query").style.display = "none";
-    document.getElementById("load").style.display = "inline-block";
-}
-
-function unload() {
-    clearall();
-    //    document.getElementById("speech").style.display = "inline";
-    document.getElementById("query").style.display = "inline";
-    document.getElementById("load").style.display = "none";
-}
-
-function getKeywords() {
-    var queryWords = query.split(" ");
-    var keyword = query.split(" ", 2)[0];
-    var two_keywords = queryWords[0] + " " + queryWords[1];
-    var three_keywords = queryWords[0] + " " + queryWords[1] + " " + queryWords[2];
-}
-document.getElementById("overlay").onmousemove = function(e) {
-    document.getElementById("bigclock").style.opacity = "0";
-    document.getElementById("bigclock").style.top = "45%";
-    document.getElementById("centerMain").style.opacity = "1";
-    document.getElementById("centerMain").style.top = "45%";
-    var opacity = localStorage.getItem('opacityVal');
-    document.getElementById("dots").style.opacity = opacity;
+document.getElementById('apps').onclick = function() {
+    chrome.tabs.update({
+        url: 'chrome://apps/'
+    });
 }
 $(document).ready(function() {
     var idleTime = 0;
 
-    setInterval(timerIncrement, 59999);
-    document.onmousemove = function() {
-        idleTime = 0;
-    }
-    document.onkeydown = function() {
-        idleTime = 0;
-    }
+//    setInterval(timerIncrement, 59999);
+//    document.onmousemove = function() {
+//        idleTime = 0;
+//    }
+//    document.onkeydown = function() {
+//        idleTime = 0;
+//    }
 
     function timerIncrement() {
         idleTime = idleTime + 1;
