@@ -74,11 +74,18 @@ b {
     overflow: hidden;
 }
 #AllReminders {
+    font-weight: bolder;
+    font-family: 'roboto' sans-serif;
+    text-align: center;
     margin: 0;
     position: absolute;
     height: auto;
     width: 100%;
     top: -100%;
+    background-color: transparent;
+}
+#viewall {
+    transition: all .3s ease;
 }
 .right_tools button {
     float: right;
@@ -122,6 +129,7 @@ b {
     max-width: 500px;
 }
 .reminder {
+    background-color: #fff;
     margin: 0 auto;
     font-size: 12pt;
     font-weight: 100;
@@ -133,7 +141,6 @@ b {
     padding: 10px;
 }
 .reminder:hover {
-    background-color: #ccc;
 }
 .reminder:active {
     background-color: #ff4a39;

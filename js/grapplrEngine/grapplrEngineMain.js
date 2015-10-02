@@ -265,13 +265,13 @@ document.getElementById('apps').onclick = function() {
 $(document).ready(function() {
     var idleTime = 0;
 
-//    setInterval(timerIncrement, 59999);
-//    document.onmousemove = function() {
-//        idleTime = 0;
-//    }
-//    document.onkeydown = function() {
-//        idleTime = 0;
-//    }
+    setInterval(timerIncrement, 59999);
+    document.onmousemove = function() {
+        idleTime = 0;
+    }
+    document.onkeydown = function() {
+        idleTime = 0;
+    }
 
     function timerIncrement() {
         idleTime = idleTime + 1;

@@ -1,14 +1,17 @@
+//  i = 0; i < cars.length; i++
 var reminders;
     var reminders = JSON.parse(localStorage.getItem('remindersLocal'))[0];
-    console.log("1" + reminders);
-    if (reminders == undefined){
-    } else {
-        document.getElementById("center_tools").style.marginTop = "-10px";
-        populateList(reminders);
-    }
+if (reminders == undefined){
+} else {
+    document.getElementById("center_tools").style.marginTop = "-10px";
+    populateList(reminders);
+}
 function populateList(r){
     document.getElementById("center_reminder").innerHTML = "<div id='reminder'>" + r + "</div>";
     return r;
+}
+function poplulateAll(ar){
+    
 }
 
 function remind(){
@@ -87,23 +90,6 @@ document.getElementById("center_reminder").onclick = function(){
         document.getElementById("center_reminder").style.visibility = "hidden";
         document.getElementById("center_tools").style.marginTop = "0px";
     }
-//    if (reminders.length > 1000){
-//        alert("ay");    
-//        var remCollapse = document.getElementById('AllReminders').clientHeight;
-//        document.getElementById("AllReminders").style.top = "-" + remCollapse;
-//        document.getElementById("overlay").style.visibility = "hidden";
-//        reminders.splice(0,1);
-//        localStorage.setItem('remindersLocal', JSON.stringify(reminders));
-//        document.getElementById("center_reminder").innerHTML = '<div id="reminder"></div>';
-//        reminders = JSON.parse(localStorage.getItem('remindersLocal'))[0];
-//        populateList(reminders);
-//    } else {
-//        var remCollapse = document.getElementById('AllReminders').clientHeight;
-//        document.getElementById("AllReminders").style.top = "-" + remCollapse;
-//        document.getElementById("overlay").style.visibility = "hidden";
-//        document.getElementById("center_reminder").style.visibility = "hidden";
-//        document.getElementById("center_tools").style.marginTop = "0px";
-//    }
 }
 document.getElementById("center_reminder").onmouseover = function(){
 }
@@ -121,6 +107,7 @@ document.getElementById("center_reminder").onmouseover = function(){
 document.getElementById("AllReminders").onmouseover = function(){
     document.getElementById("AllReminders").style.top = "0";
     document.getElementById("overlay").style.visibility = "visible";
+    document.getElementById('viewall').style.opacity = "0";
 }
 document.getElementById("center_reminder").onmouseleave = function(){
     var remCollapse = document.getElementById('AllReminders').clientHeight;
@@ -128,6 +115,7 @@ document.getElementById("center_reminder").onmouseleave = function(){
 }
 document.getElementById("AllReminders").onmouseleave = function (){
     var remCollapse = document.getElementById('AllReminders').clientHeight;
-    document.getElementById("AllReminders").style.top = "-" + remCollapse;  
+    document.getElementById("AllReminders").style.top = "-" + remCollapse; 
+    document.getElementById('viewall').style.opacity = "1";
 }
     
