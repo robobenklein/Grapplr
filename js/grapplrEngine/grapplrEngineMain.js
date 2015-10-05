@@ -8,6 +8,16 @@ $('#doots').click(function() {
     unloadMenus();
 });
 var query = document.getElementById("query").value;
+function hideToolBar(){
+    document.getElementById("topBar").style.opacity = "0";
+    document.getElementById("center_tools").style.opacity = "0";
+    document.getElementById("center_reminder").style.opacity = "0";
+}
+function showToolBar(){
+    document.getElementById("topBar").style.opacity = "1";
+    document.getElementById("center_tools").style.opacity = "1";
+    document.getElementById("center_reminder").style.opacity = "1";
+}
 
 //Custom Command Step 1:
 //Define Function Toggle
@@ -217,6 +227,9 @@ document.getElementById("overlay").onmousemove = function(e) {
     document.getElementById("centerMain").style.top = "45%";
     var opacity = localStorage.getItem('opacityVal');
     document.getElementById("dots").style.opacity = opacity;
+    showToolBar();
+    document.body.style.cursor = "default";
+    idleTime = 0;
 }
 function clearall() {
     DownloadToggle = 0;
@@ -281,9 +294,13 @@ $(document).ready(function() {
             document.getElementById("bigclock").style.top = "50%";
             document.getElementById("centerMain").style.opacity = 0;
             document.getElementById("centerMain").style.top = "50%";
+            document.getElementById("bigclock").style.color = "#fff";
+            document.body.style.cursor = "none";
         }
         if (idleTime > 1) {
-            document.getElementById("dots").style.opacity = ".9";
+            document.getElementById("bigclock").style.color = "#aaa";
+            document.getElementById("dots").style.opacity = ".97";
+            hideToolBar();
         }
     }
 
@@ -322,6 +339,10 @@ $(document).ready(function() {
                 tod = "PM";
             }
         }
+        if(i == 0){
+            i = 12;
+            tod = "AM";
+        }
         return i;
     }
 
@@ -347,3 +368,6 @@ $(document).ready(function() {
     }); //"keydown" if that's what you're doing
     $("html").trigger(e);
 });
+//window.oncontextmenu = function(){ 
+//    return false; 
+//}
