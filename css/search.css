@@ -128,6 +128,7 @@ b {
     max-width: 100%;
     color: #fff;
     padding: 6px;
+    opacity: 0;
 }
 #reminder {
     font-size: 12pt;
@@ -479,6 +480,7 @@ input.chbg::before {
     overflow: hidden;
     visibility: hidden;
     cursor: default;
+    animation: fade 1s ease;
 }
 #windowTitle{
     margin-bottom: 10px;

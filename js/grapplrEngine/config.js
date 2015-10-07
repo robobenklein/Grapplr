@@ -7,13 +7,11 @@ window.onload = function(){
     var slide5 = document.getElementById("slide5");
     var slide6 = document.getElementById("slide6");
     var slide7 = document.getElementById("slide7");
-    var name;
-    var collect;
-    var dftEng;
-    var dftMusic;
-    var dftVideo;
-    var location;
-    var hasSet;
+    var reminders = [];
+    localStorage.setItem("opacityVal", ".50");
+    localStorage.setItem("blurVal", "0");
+    localStorage.setItem("imgData","url(../../images/default_wallpaper/white.png");
+    localStorage.setItem('remindersLocal', JSON.stringify(reminders));
     document.getElementById("next0").onclick = function(){
         slide1.style.right = "0";
         slide0.style.right = "100%";
@@ -28,26 +26,68 @@ window.onload = function(){
         }
     }
     document.getElementById("acceptData").onclick = function(){
+        var collect = true;
+        localStorage.setItem("collect", collect);
         slide2.style.right = "100%";
         slide3.style.right = "0";
     }
     document.getElementById("rejectData").onclick= function(){
+        var collect = false;
+        localStorage.setItem("collect", collect);
         slide2.style.right = "100%";
         slide3.style.right = "0";
     }
     document.getElementById("next1").onclick = function(){
+        var name = document.getElementById("name").value;
+        localStorage.setItem("name", name);
         slide2.style.right = "0";
         slide1.style.right = "100%";
     }
-    document.getElementById("eng").onclick = function(){
+    document.getElementById("engGoogle").onclick = function(){
+        var eng = "http://google.com/search?=";
+        localStorage.setItem("searchEngine", eng);
         slide3.style.right = "100%";
         slide4.style.right = "0";
     }
-    document.getElementById("music").onclick = function(){
+    document.getElementById("engYahoo").onclick = function(){
+        var eng = "http://yahoo.com/search?=";
+        localStorage.setItem("searchEngine", eng);
+        slide3.style.right = "100%";
+        slide4.style.right = "0";
+    }
+    document.getElementById("engBing").onclick = function(){
+        var eng = "http://bing.com/search?=";
+        localStorage.setItem("searchEngine", eng);
+        slide3.style.right = "100%";
+        slide4.style.right = "0";
+    }
+    document.getElementById("musicSoundcloud").onclick = function(){
+        var music = "http://soundcloud.com/search?=";
+        localStorage.setItem("musicEngine", music);
         slide4.style.right = "100%";
         slide5.style.right = "0";
     }
-    document.getElementById("video").onclick = function(){
+    document.getElementById("musicYouTube").onclick = function(){
+        var music = "https://www.youtube.com/results?search_query=";
+        localStorage.setItem("musicEngine", music);
+        slide4.style.right = "100%";
+        slide5.style.right = "0";
+    }
+    document.getElementById("videoYouTube").onclick = function(){
+        var video = "https://www.youtube.com/results?search_query=";
+        localStorage.setItem("videoEngine", video);
+        slide5.style.right = "100%";
+        slide6.style.right = "0";
+    }
+    document.getElementById("videoVimeo").onclick = function(){
+        var video = "https://vimeo.com/search?q=";
+        localStorage.setItem("videoEngine", video);
+        slide5.style.right = "100%";
+        slide6.style.right = "0";
+    }
+    document.getElementById("videoDefault").onclick = function(){
+        var video = "https://www.youtube.com/results?search_query=";
+        localStorage.setItem("videoEngine", video);
         slide5.style.right = "100%";
         slide6.style.right = "0";
     }
@@ -56,6 +96,7 @@ window.onload = function(){
         var length = zip.length;
         if(length > 4){
             document.getElementById("next6").style.display = "inline";
+            localStorage.setItem("zipCode", zip);
         }else{
             document.getElementById("next6").style.display = "none";
         }
@@ -63,6 +104,10 @@ window.onload = function(){
     document.getElementById("next6").onclick = function(){
         slide6.style.right = "100%";
         slide7.style.right = "0";
+        localStorage.setItem("hasSet", "1");
+    }
+    document.getElementById("continue").onclick = function(){
+        window.location.assign("grapplr.html");
     }
 }
     

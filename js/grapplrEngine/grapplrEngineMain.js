@@ -360,8 +360,7 @@ $(document).ready(function() {
     }
 
     function setGreeting(i) {
-        var infos = JSON.parse(localStorage.getItem('infoStorage'));
-        var name = infos[0];
+        var name = localStorage.getItem('name');
         if (tod == "PM") {
             if (i == 12) {
                 document.getElementById("greeting").innerHTML = "Grab a bite!";
