@@ -1,32 +1,47 @@
 window.onload = function(){
+    var slide0 = document.getElementById("slide");
     var slide1 = document.getElementById("slide1");
     var slide2 = document.getElementById("slide2");
     var slide3 = document.getElementById("slide3");
-    var info = [];
-    document.getElementById("get_started").onclick = function(){
-        slide1.style.display = "none";
-        slide2.style.display = "block";
-        var info = [];
+    var slide4 = document.getElementById("slide4");
+    var slide5 = document.getElementById("slide5");
+    var slide6 = document.getElementById("slide6");
+    var name;
+    var collect;
+    var dftEng;
+    var dftMusic;
+    var dftVideo;
+    var location;
+    var hasSet;
+    document.getElementById("next0").onclick = function(){
+        slide1.style.right = "0";
+        slide0.style.right = "100%";
     }
-    document.getElementById("next2").onclick = function(){
+    document.getElementById("name").onkeyup = function(){
         var name = document.getElementById("name").value;
-        info.push(name);
-        
-        slide2.style.display = "none";
-        slide3.style.display = "block";
+        var length = name.length;
+        if(length > 1){
+            document.getElementById("next1").style.display = "inline";
+        }else{
+            document.getElementById("next1").style.display = "none";
+        }
     }
-    document.getElementById("finish").onclick = function(){
-        slide3.style.display = "none";
-        var month = document.getElementById("month").value;
-        var day = document.getElementById("day").value;
-        var birthday = month + " " + day;
-        info.push(birthday);
-        localStorage.setItem('infoStorage', JSON.stringify(info));
+    document.getElementById("acceptData").onclick = function(){
+        slide2.style.right = "100%";
+        slide3.style.right = "0";
+    }
+    document.getElementById("rejectData").onclick= function(){
+        slide2.style.right = "100%";
+        slide3.style.right = "0";
+    }
+    document.getElementById("next1").onclick = function(){
+        slide2.style.right = "0";
+        slide1.style.right = "100%";
     }
 }
 function loadConfig(){
-    var info = JSON.parse(localStorage.getItem('infoStorage'));
-    if(info == null){
+    var hasSet = JSON.parse(localStorage.getItem('hasSet'));
+    if(hasSet == null){
         window.location.assign("setup.html");
     } else {
     }

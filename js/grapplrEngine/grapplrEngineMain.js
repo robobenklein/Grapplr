@@ -37,7 +37,7 @@ var CalcToggle = 0;
 var PlotToggle = 0;
 var RemindToggle = 0;
 
-document.onkeyup = function(event) {
+document.getElementById("query").onkeyup = function(event) {
     var query = document.getElementById("query").value;
     var query = query.toLowerCase();
     var queryWords = query.split(" ");
@@ -271,11 +271,25 @@ function clearall() {
 
 }
 document.getElementById('apps').onclick = function() {
+    document.getElementById("appMenu").style.left = "0";
+    setInterval(showApps, 700);
+}
+function showApps(){
     chrome.tabs.update({
         url: 'chrome://apps/'
     });
 }
 $(document).ready(function() {
+    loadConfig();
+    window.onerror = function(){
+        document.getElementById("window").style.visibility = "visible";
+    }
+    document.getElementById("reload").onclick = function(){
+        location.reload();
+    }
+    document.getElementById("closeWindow").onclick = function(){
+        document.getElementById("window").style.visibility = "hidden";
+    }
     var idleTime = 0;
 
     setInterval(timerIncrement, 59999);
@@ -305,7 +319,6 @@ $(document).ready(function() {
     }
 
     startTime();
-    loadConfig();
 //    document.getElementById("greeting").innerHTML = "loading...";
     function startTime() {
         var today = new Date();

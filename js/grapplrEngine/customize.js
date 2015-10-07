@@ -25,9 +25,6 @@ function readURL(input) {
     document.getElementById("changebg").onchange = function(){
         readURL(this);
     }
-window.onerror = function(){
-    alert("Something happened and Grapplr didn't work correctly. Try refreshing the page. Sorry about that! :(");
-}
 document.getElementById("setdots").onclick = function(){
     document.getElementById("dots").style.backgroundColor = "transparent";
     var overlay = "url(../images/dot_overlay.png";

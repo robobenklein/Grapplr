@@ -301,6 +301,15 @@ select:focus {
     transition: 1s all cubic-bezier(0.2,.8,0,1);
     -webkit-transform: translateZ(0);
 }
+#appMenu {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    transition: .8s all ease;
+}
 .menu button{
     margin-top: 1px;
     width: 298px;
@@ -456,6 +465,48 @@ input.chbg::before {
     border-radius: 20px;
     float: left;
     margin: 12px;
+}
+#window{
+    font-family: 'roboto', sans-serif;
+    color: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 5;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    overflow: hidden;
+    visibility: hidden;
+    cursor: default;
+}
+#windowTitle{
+    margin-bottom: 10px;
+    font-size: 15pt;
+}
+#windowDescription{
+    margin-bottom: 10px;
+}
+.windowButton{
+    display: inline-block;
+    padding: 10px;
+    background-color: #eee;
+    margin-right: 10px;
+    border-bottom: 2px solid #fff;
+}
+.windowButton:hover{
+    border-bottom: 2px solid #333;
+}
+.windowButton:active {
+    background-color: #222;
+    color: #fff;
+}
+.window{
+    margin: 0 auto;
+    margin-top: 20%;
+    width: 500px;
+    padding: 20px;
+    background-color: #fff;
 }
 .select_bubble#setdots{
     background-image: url(../images/dot.png);
