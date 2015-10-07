@@ -8,6 +8,9 @@ body {
     -webkit-user-select: none;
     cursor: default;
 }
+img{
+    margin: 0;
+}   
 .slide {
     transition: all 1s cubic-bezier(0.2,.8,0,1); 
     background-color: #fff;

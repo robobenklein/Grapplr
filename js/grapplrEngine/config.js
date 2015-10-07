@@ -6,6 +6,7 @@ window.onload = function(){
     var slide4 = document.getElementById("slide4");
     var slide5 = document.getElementById("slide5");
     var slide6 = document.getElementById("slide6");
+    var slide7 = document.getElementById("slide7");
     var name;
     var collect;
     var dftEng;
@@ -38,7 +39,33 @@ window.onload = function(){
         slide2.style.right = "0";
         slide1.style.right = "100%";
     }
+    document.getElementById("eng").onclick = function(){
+        slide3.style.right = "100%";
+        slide4.style.right = "0";
+    }
+    document.getElementById("music").onclick = function(){
+        slide4.style.right = "100%";
+        slide5.style.right = "0";
+    }
+    document.getElementById("video").onclick = function(){
+        slide5.style.right = "100%";
+        slide6.style.right = "0";
+    }
+    document.getElementById("zip").onkeyup = function(){
+        var zip = document.getElementById("zip").value;
+        var length = zip.length;
+        if(length > 4){
+            document.getElementById("next6").style.display = "inline";
+        }else{
+            document.getElementById("next6").style.display = "none";
+        }
+    }
+    document.getElementById("next6").onclick = function(){
+        slide6.style.right = "100%";
+        slide7.style.right = "0";
+    }
 }
+    
 function loadConfig(){
     var hasSet = JSON.parse(localStorage.getItem('hasSet'));
     if(hasSet == null){
