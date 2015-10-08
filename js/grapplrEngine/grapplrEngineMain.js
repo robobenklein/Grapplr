@@ -38,6 +38,7 @@ var PlotToggle = 0;
 var RemindToggle = 0;
 
 document.getElementById("query").onkeyup = function(event) {
+    idleTime = 0;
     var query = document.getElementById("query").value;
     var query = query.toLowerCase();
     var queryWords = query.split(" ");
@@ -292,17 +293,32 @@ $(document).ready(function() {
     }
     var idleTime = 0;
 
-    setInterval(timerIncrement, 59999);
+    setInterval(timerIncrement, 5000);
     document.onmousemove = function() {
+        document.getElementById("bigclock").style.opacity = "0";
+        document.getElementById("bigclock").style.top = "45%";
+        document.getElementById("centerMain").style.opacity = "1";
+        document.getElementById("centerMain").style.top = "45%";
+        var opacity = localStorage.getItem('opacityVal');
+        document.getElementById("dots").style.opacity = opacity;
+        document.body.style.cursor = "default";
         idleTime = 0;
     }
     document.onkeydown = function() {
+        document.getElementById("bigclock").style.opacity = "0";
+        document.getElementById("bigclock").style.top = "45%";
+        document.getElementById("centerMain").style.opacity = "1";
+        document.getElementById("centerMain").style.top = "45%";
+        var opacity = localStorage.getItem('opacityVal');
+        document.getElementById("dots").style.opacity = opacity;
+        document.body.style.cursor = "default";
         idleTime = 0;
     }
 
     function timerIncrement() {
         idleTime = idleTime + 1;
-        if (idleTime > 0) {
+        console.log(idleTime);
+        if (idleTime > 5) {
             document.getElementById("overlay").style.visibility = "visible";
             document.getElementById("bigclock").style.opacity = 1;
             document.getElementById("bigclock").style.top = "50%";
@@ -310,11 +326,11 @@ $(document).ready(function() {
             document.getElementById("centerMain").style.top = "50%";
             document.getElementById("bigclock").style.color = "#fff";
             document.body.style.cursor = "none";
-        }
-        if (idleTime > 1) {
+        } else if (idleTime > 11) {
             document.getElementById("bigclock").style.color = "#aaa";
             document.getElementById("dots").style.opacity = ".97";
             hideToolBar();
+        } else {
         }
     }
 
