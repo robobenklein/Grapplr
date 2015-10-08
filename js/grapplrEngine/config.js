@@ -10,7 +10,7 @@ window.onload = function(){
     var reminders = [];
     localStorage.setItem("opacityVal", ".50");
     localStorage.setItem("blurVal", "0");
-    localStorage.setItem("imgData","url(../../images/default_wallpaper/white.png");
+    localStorage.setItem("imgData","url(../default.jpg");
     localStorage.setItem('remindersLocal', JSON.stringify(reminders));
     document.getElementById("next0").onclick = function(){
         slide1.style.right = "0";
