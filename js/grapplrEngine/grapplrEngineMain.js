@@ -36,7 +36,12 @@ var speechToggle = 0;
 var CalcToggle = 0;
 var PlotToggle = 0;
 var RemindToggle = 0;
-
+document.getElementById("query").onfocus = function(){
+    document.getElementById("query").placeholder = "start typing";
+}
+document.getElementById("query").onblur = function(){
+    document.getElementById("query").placeholder = "click here to start typing";
+}
 document.getElementById("query").onkeyup = function(event) {
     idleTime = 0;
     var query = document.getElementById("query").value;
@@ -326,11 +331,11 @@ $(document).ready(function() {
             document.getElementById("centerMain").style.top = "50%";
             document.getElementById("bigclock").style.color = "#fff";
             document.body.style.cursor = "none";
-        } else if (idleTime > 11) {
+        } 
+        if (idleTime > 11) {
             document.getElementById("bigclock").style.color = "#aaa";
             document.getElementById("dots").style.opacity = ".97";
             hideToolBar();
-        } else {
         }
     }
 

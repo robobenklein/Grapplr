@@ -91,12 +91,12 @@ window.onload = function(){
         slide5.style.right = "100%";
         slide6.style.right = "0";
     }
-    document.getElementById("zip").onkeyup = function(){
-        var zip = document.getElementById("zip").value;
-        var length = zip.length;
+    document.getElementById("location").onkeyup = function(){
+        var location = document.getElementById("location").value;
+        var length = location.length;
         if(length > 4){
             document.getElementById("next6").style.display = "inline";
-            localStorage.setItem("zipCode", zip);
+            localStorage.setItem("location", location);
         }else{
             document.getElementById("next6").style.display = "none";
         }

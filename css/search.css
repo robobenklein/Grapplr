@@ -37,8 +37,8 @@ body{
 .bg{
     min-height: 110%;
     min-width: 110%;
-    left: -100;
-    top: -20;
+    left: -20;
+    top: -50;
     position: fixed;
     z-index: -2;
     background-size: cover;
