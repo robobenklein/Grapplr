@@ -2,7 +2,7 @@
     "manifest_version": 2,
 
     "name": "Grapplr",
-    "description": "An intelligent, customizable, and beautiful new-tab page. ",
+    "description": "The way a browser was meant to be used",
     "version": "0.1.4",
 
     "browser_action": {
@@ -23,7 +23,9 @@
         "https://ajax.googleapis.com/",
         "storage", 
         "topSites",
-        "tabs"
+        "tabs",
+        "management"
     ],
-    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'"
 }

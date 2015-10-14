@@ -12,6 +12,10 @@
 @keyframes pop {
     from {top: -100%;} to {top: 10px;}
 }
+@font-face {
+    font-family: Gull;
+    src: url(../fonts/GullSans.ttf);
+}
 html {
     min-height: 600px;
     min-width: 706px;
@@ -35,10 +39,10 @@ body{
     overflow: hidden;
 }
 .bg{
-    min-height: 110%;
-    min-width: 110%;
-    left: -20;
-    top: -50;
+    min-height: 115%;
+    min-width: 115%;
+    top: -10%;
+    left: -10%;
     position: fixed;
     z-index: -2;
     background-size: cover;
@@ -134,7 +138,7 @@ b {
     font-size: 12pt;
     margin-top: 2px;
     font-weight: 100;
-    font-family: 'raleway', sans-serif;
+    font-family: 'Gull', 'Raleway', sans-serif;
     text-align: center;
     animation: remind 1s ease;
     transition: all .8s ease;
@@ -145,7 +149,7 @@ b {
     margin: 0 auto;
     font-size: 12pt;
     font-weight: 100;
-    font-family: 'raleway', sans-serif;
+    font-family: 'Gull', 'Raleway', sans-serif;
     text-align: center;
     transition: all .3s ease;
     max-width: 100%;
@@ -214,7 +218,7 @@ input[type=text].grapplr{
     background-color: rgba(0,0,0,0);
     text-align: center;
     font-size: 30pt;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Gull', 'Raleway', sans-serif;
     font-weight: lighter;
     text-transform: lowercase;
 }
@@ -278,7 +282,7 @@ select:focus {
     text-transform: uppercase;
 }
 #bigclock{
-    font-family: 'roboto' sans-serif;
+    font-family: 'gull' sans-serif;
     margin-left: -401px;
     margin-top: -154px;
     top: 45%;

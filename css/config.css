@@ -1,3 +1,7 @@
+@font-face {
+    font-family: Gull;
+    src: url(../fonts/GullSans.ttf);
+}
 @keyframes bounce {
     from{right: 100; opacity: .8;}
     to{right: 40; opacity: 1;}
@@ -20,6 +24,7 @@ img{
     top: 0;
     right: -100%;
     text-align: center;
+    -webkit-transform: translateZ(0);
 }
 #slide{
     right: 0;
@@ -37,7 +42,7 @@ img.logo{
 input[type=text]{
     -webkit-user-select: text;
     font-size: 12pt;
-    font-family: 'raleway', sans-serif;
+    font-family: 'Gull', sans-serif;
     padding: 20px;
     width: auto;
     border: 0;
@@ -47,11 +52,13 @@ input[type=text]{
 }
 p{
     font-size: 10pt;
-    margin: 0; 
+    margin: 0;
+    font-family: 'Gull', sans-serif;
 }
 button{
     font-size: 12pt;
     font-family: 'roboto', sans-serif;
+    font-family: 'Gull', sans-serif;
     outline: none;
     border: 0;
     display: inline-block;
