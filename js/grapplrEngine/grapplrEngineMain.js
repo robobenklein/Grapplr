@@ -36,6 +36,9 @@ var speechToggle = 0;
 var CalcToggle = 0;
 var PlotToggle = 0;
 var RemindToggle = 0;
+var AlarmToggle = 0;
+var TimerToggle = 0;
+
 document.getElementById("query").onfocus = function(){
     document.getElementById("query").placeholder = "start typing";
 }
@@ -50,6 +53,7 @@ document.getElementById("query").onkeyup = function(event) {
     var keyword = query.split(" ", 2)[0];
     var two_keywords = queryWords[0] + " " + queryWords[1];
     var three_keywords = queryWords[0] + " " + queryWords[1] + " " + queryWords[2];
+    var four_keywords = queryWords[0] + " " + queryWords[1] + " " + queryWords[2] + " " + queryWords[3];
 
     if (event.keyCode == 32) {
         //        speak();
@@ -103,6 +107,13 @@ document.getElementById("query").onkeyup = function(event) {
             } else if (RemindToggle == 1) {
                 clearall();
                 remind();
+            } else if (AlarmToggle == 1) {
+                clearall();
+                setAlarm();
+            } 
+            else if (TimerToggle == 1) {
+                clearall();
+                setTimer();
             } else {
                 search();
                 console.log("searching");
@@ -113,6 +124,7 @@ document.getElementById("query").onkeyup = function(event) {
             var keyword = query.split(" ", 2)[0];
             var two_keywords = queryWords[0] + " " + queryWords[1];
             var three_keywords = queryWords[0] + " " + queryWords[1] + " " + queryWords[2];
+            var four_keywords = queryWords[0] + " " + queryWords[1] + " " + queryWords[2] + " " + queryWords[3];
             document.getElementById("controls").style.width = "0px";
         }
 
@@ -181,7 +193,7 @@ document.getElementById("query").onkeyup = function(event) {
         } else if (keyword.indexOf("gcl: refresh") != -1 || keyword.indexOf("gcl: fix") != -1) {
             load();
             clearall();
-            window.location.assign("/grapplr.php");
+            window.location.reload();
         } else if (keyword.indexOf("calculate") != -1) {
             clearall();
             CalcToggle = 1;
@@ -197,10 +209,19 @@ document.getElementById("query").onkeyup = function(event) {
             RemindToggle = 1;
             document.getElementById("remind").style.display = "inline-block";
             document.getElementById("controls").style.width = "60px";
+        } else if (three_keywords.indexOf("set an alarm") != -1 || three_keywords.indexOf("create an alarm") != -1 || three_keywords.indexOf("make an alarm") != -1|| four_keywords.indexOf("wake me up at") != -1) {
+            clearall();
+            RemindToggle = 1;
+            document.getElementById("alarm").style.display = "inline-block";
+            document.getElementById("controls").style.width = "60px";
+        } else if (three_keywords.indexOf("set a timer") != -1 || three_keywords.indexOf("create a timer") != -1 || three_keywords.indexOf("make an timer") != -1){
+            clearall();
+            RemindToggle = 1;
+            document.getElementById("timer").style.display = "inline-block";
+            document.getElementById("controls").style.width = "60px";
         } else {
             clearall();
         }
-        console.log(DownloadToggle, FindToggle, PlayToggle, TweetToggle, PostToggle, DefineToggle, qToggle);
     }
 }
 
@@ -225,6 +246,7 @@ function getKeywords() {
     var keyword = query.split(" ", 2)[0];
     var two_keywords = queryWords[0] + " " + queryWords[1];
     var three_keywords = queryWords[0] + " " + queryWords[1] + " " + queryWords[2];
+    var four_keywords = queryWords[0] + " " + queryWords[1] + " " + queryWords[2] + " " + queryWords[3];
 }
 document.getElementById("overlay").onmousemove = function(e) {
     document.getElementById("bigclock").style.opacity = "0";
@@ -250,6 +272,8 @@ function clearall() {
     CalcToggle = 0;
     PlotToggle = 0;
     RemindToggle = 0;
+    AlarmToggle = 0;
+    TimerToggle = 0;
     //  Step 4:
     //  Set function toggle to off here
     //  Example:
@@ -269,6 +293,8 @@ function clearall() {
     document.getElementById("calc").style.display = "none";
     document.getElementById("plot").style.display = "none";
     document.getElementById("remind").style.display = "none";
+    document.getElementById("alarm").style.display = "none";
+    document.getElementById("timer").style.display = "none";
 
     //  Step 5 (last step on this file):
     //  Make command icon disappear here

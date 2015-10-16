@@ -126,7 +126,7 @@ b {
     margin: 0 auto;
     font-size: 12pt;
     font-weight: 100;
-    font-family: 'raleway', sans-serif;
+    font-family: 'gull', sans-serif;
     text-align: center;
     transition: all .3s ease;
     max-width: 100%;
@@ -157,12 +157,15 @@ b {
     padding: 5px;
 }
 .reminder:before {
+    margin: 0;
+    font-size: 10pt;
     margin-right: 10px;
     animation: fade 1s ease;
     content: '\25CF';
 }
 .reminder:hover:before {
-    font-size: 9pt;
+    margin: 0;
+    font-size: 8pt;
     margin-right: 10px;
     animation: fade 1s ease;
     content: '\2715';
@@ -171,13 +174,16 @@ b {
     opacity: 0.5;
 } 
 #reminder:before {
+    margin: 0;
+    font-size: 10pt;
     margin-right: 10px;
     animation: fade 1s ease;
     content: '\25CF';
 }
 #reminder:hover:before {
-    font-size: 9pt;
-    margin-right: 10px;
+    margin: 0;
+    font-size: 8pt;
+    margin-right: 9px;
     animation: fade 1s ease;
     content: '\2715';
 }
@@ -257,7 +263,7 @@ select {
     color: #000;
     background-color: rgba(0,0,0,0);
     font-size: 20pt;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'roboto', sans-serif;
     display: inline-block;
 }
 select:focus {
