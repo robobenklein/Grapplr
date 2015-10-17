@@ -34,7 +34,7 @@ body{
     margin: 0;
     padding: 0;
     color: #fff;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'gull', sans-serif;
     width: 100%;
     overflow: hidden;
 }
@@ -257,17 +257,55 @@ button:focus {
     outline:none;
 }
 select {
-    -webkit-appearance: none;
     min-width: 90px;
-    border: 1px solid #aaa; 
+    border: 0px;
+    border-bottom: 2px solid #000; 
     color: #000;
-    background-color: rgba(0,0,0,0);
-    font-size: 20pt;
-    font-family: 'roboto', sans-serif;
+    background-color: #eee;
+    font-family: 'gull', sans-serif;
     display: inline-block;
+    padding: 10px;
+    width: 100%;
 }
 select:focus {
     outline: none;
+}
+option {
+    -webikit-appearance: none;
+    padding: 20px;
+}
+input[type=checkbox]{
+    float: right;
+    transition: border .7s ease;
+    -webkit-appearance: none;
+    background-color: #fff;
+    padding: 8px;
+    margin: 0;
+    border-right: 20px solid #aaa;
+    border-left: 0px solid #222;
+    background-color: #eee;
+    border-radius: 3px;
+}
+input[type=checkbox]:checked {
+    border-right: 0px solid #222;
+    border-left: 20px solid #09f;
+}
+.switch {
+    font-size: 11pt;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+input[type=radio].time{
+    -webkit-appearance: none;
+    width: 100px;
+    height: 56px;
+    margin: 13px;
+    transition: all .7s ease;
+    border-radius: 3px;
+    border-top: 0px solid rgba(0,0,0,0.9);
+}
+input[type=radio].time:checked{
+    border-top: 56px solid rgba(255,255,255,0.5);
 }
 #load {
     display: none;
@@ -312,6 +350,32 @@ select:focus {
     transition: 1s all cubic-bezier(0.2,.8,0,1);
     -webkit-transform: translateZ(0);
 }
+.menuR {
+    padding: 0px;
+    margin: 10px;
+    color: #000;
+    width: 300px;
+    height: 100%;
+    background-color: #fff;
+    transition: 1s all cubic-bezier(0.2,.8,0,1);
+    -webkit-transform: translateZ(0);
+    position: absolute;
+    top: -10;
+    right: -310;
+}
+.menuL {
+    padding: 0px;
+    margin: 10px;
+    color: #000;
+    width: 300px;
+    height: 100%;
+    background-color: #fff;
+    transition: 1s all cubic-bezier(0.2,.8,0,1);
+    -webkit-transform: translateZ(0);
+    position: absolute;
+    top: -10;
+    left: -310;
+}
 #appMenu {
     position: absolute;
     top: 0;
@@ -330,7 +394,26 @@ select:focus {
 .menu button:active{
     -webkit-filter: brightness(.5);
 }
+.menuL button{
+    margin-top: 1px;
+    width: 298px;
+    text-align: left;
+    display: block;
+}
+.menuL button:active{
+    -webkit-filter: brightness(.5);
+}
+.menuR button{
+    margin-top: 1px;
+    width: 298px;
+    text-align: left;
+    display: block;
+}
+.menuR button:active{
+    -webkit-filter: brightness(.5);
+}
 .menu_title {
+    font-family: 'roboto' sans-serif;
     background-color: #efefef;
     font-weight: bold;
     text-transform: uppercase;
@@ -364,9 +447,6 @@ button#settings_toggle {
     z-index: 999999;
 }
 #settings {
-    position: absolute;
-    top: -10;
-    right: -310;
 }
 #bookmarks {
     position: absolute;
@@ -427,6 +507,36 @@ input[type=range]#blur::-webkit-slider-runnable-track {
     font-weight: bold;
 }
 .option:hover {
+    background-color: #333;
+    color: #fff;
+}
+.optionR {
+    font-family: 'roboto' sans-serif;
+    margin: 0;
+    padding: 20px;
+    color: #000;
+    transition: all .1s ease;
+    margin: 1px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-weight: bold;
+}
+.optionR:hover {
+    background-color: #333;
+    color: #fff;
+}
+.optionL {
+    font-family: 'roboto' sans-serif;
+    margin: 0;
+    padding: 20px;
+    color: #000;
+    transition: all .1s ease;
+    margin: 1px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-weight: bold;
+}
+.optionL:hover {
     background-color: #333;
     color: #fff;
 }

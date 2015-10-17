@@ -59,14 +59,21 @@
             </div>
             <div id="viewall">see all</div>
         </div>
-        <div class="menu" id="settings">
+        <div class="menuR" id="settings">
             <div class="menu_title"><img src="images/grapplr_logo.png"></div>
-            <button class="option" id="custo_toggle">CUSTOMIZE</button>
-            <button class="option" id="sites_toggle">GRAPPLED SITES</button>
-            <button class="option" id="cs_toggle">CHROME</button>
-            <button class="option" style="margin-bottom: 1px;">HELP</button>
+            <button class="optionR" value="grapplr_settings">SETTINGS</button>
+            <button class="optionR" value="">GRAPPLED SITES</button>
+            <button class="optionR" value="chrome_settings">CHROME</button>
+            <button class="optionR" style="margin-bottom: 1px;">HELP</button>
         </div>
-        <div class="menu" id="customize">
+        <div class="menuR" id="grapplr_settings">
+                <div class="menu_title">SETTINGS</div>
+                <button class="optionR" value="customize">CUSTOMIZATION</button>
+                <button class="optionR" value="time_and_clock">TIME AND CLOCK</button>
+                <button class="option">DEFAULTS</button>
+                <button class="option">DEFAULTS</button>
+        </div>
+        <div class="menuR" id="customize">
             <div class="menu_title">CUSTOMIZE</div>
             <div class="scroll">
                 <div class="section">
@@ -88,35 +95,43 @@
                     <input id="opacity" type="range" min="40" max="70">
                 </div>
                 <div class="section" style="margin-bottom: 70px;">
-<!--
-                    <div class="sub_title">color theme</div>
-                    <div id="black" class="select_bubble"></div>
-                    <div id="red" class="select_bubble"></div>
-                    <div id="orange" class="select_bubble"></div>
-                    <div id="yellow" class="select_bubble"></div>
-                    <div id="sand" class="select_bubble"></div>
-                    <div id="lavender" class="select_bubble"></div>
-                    <div id="teal" class="select_bubble"></div>
-                    <div id="blue" class="select_bubble"></div>
-                    <div id="green" class="select_bubble"></div>
-                    <div id="mint" class="select_bubble"></div>
-                    <div id="darkGreen" class="select_bubble"></div>
-                    <div id="purple" class="select_bubble"></div>
-                    <div id="plum" class="select_bubble"></div>
-                    <div id="pink" class="select_bubble"></div>
-                    <div id="lime" class="select_bubble"></div>
-                    <div id="maroon" class="select_bubble"></div>
--->
                 </div>
             </div>
         </div>
-        <div class="menu" id="chrome_settings">
+        <div class="menuR" id="time_and_clock">
+            <div class="menu_title">TIME AND CLOCK</div>
+            <div class="scroll">
+                <div class="section">
+                    <div class="sub_title">clock format</div>
+                        <div class="switch">
+                            24-hour time<input type="checkbox">
+                        </div>
+                </div>
+                <div class="section">
+                    <div class="sub_title">sleep mode clock style</div>
+                    <input type="radio" class="time" name="time" value="" style="background-image: url(clocks/standard/thumb.png);">
+                    <input type="radio" class="time" name="time" value="" style="background-image: url(clocks/analog/thumb.png);">
+                    <input type="radio" class="time" name="time" value="" style="background-image: url(clocks/dots/thumb.png);">
+                    <input type="radio" class="time" name="time" value="" style="background-image: url(clocks/light/thumb.png);">
+                    <div class="switch">
+                    show the weather<input type="checkbox">
+                    </div>
+                    <div class="switch">
+                    show the next alarm<input type="checkbox">
+                    </div>
+                    <div class="switch">
+                    show a reminder<input type="checkbox">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menuR" id="chrome_settings">
             <div class="menu_title"><img src="images/chrome.png"></div>
             <div class="option">SETTINGS</div>
             <div class="option">HISTORY</div>
             <div class="option">EXTENSIONS</div>
         </div>
-        <div class="menu" id="bookmarks">
+        <div class="menuR" id="bookmarks">
             <div class="menu_title">BOOKMARKS</div>
         </div>
         <div class="toolbar" id="bottomtoolbar">
