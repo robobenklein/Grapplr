@@ -278,13 +278,12 @@ input[type=checkbox]{
     float: right;
     transition: border .7s ease;
     -webkit-appearance: none;
-    background-color: #fff;
     padding: 8px;
     margin: 0;
     border-right: 20px solid #aaa;
     border-left: 0px solid #222;
     background-color: #eee;
-    border-radius: 3px;
+    border-radius: 20px;
 }
 input[type=checkbox]:checked {
     border-right: 0px solid #222;
@@ -421,6 +420,7 @@ input[type=radio].time:checked{
     color: #000;
     text-align: center;
     color: #000;
+    overflow: hidden;
 }
 .sub_title{
     font-family: 'roboto' sans-serif;
@@ -433,6 +433,9 @@ input[type=radio].time:checked{
     margin-bottom: 0px;
     font-weight: bold;
     text-transform: uppercase;
+}
+img.back {
+    float: left;
 }
 .scroll{
     height: 100%;
@@ -475,9 +478,8 @@ input[type=range]::-webkit-slider-thumb {
     height: 17px;
     width: 17px;
     border-radius: 50%;
-    background: #fff;
+    background: #eee;
     margin-top: -4px;
-    border: 1px solid #333;
 }
 input[type=range]::-webkit-slider-runnable-track {
     background: -webkit-gradient(linear, left top, right top, color-stop(0%,#aaa), color-stop(100%,#222));
