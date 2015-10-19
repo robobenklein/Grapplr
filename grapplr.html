@@ -13,7 +13,7 @@
 	<body>
         <div id="bg" class="bg"></div>
         <div id="dots" class="dots"></div>
-        <div id="bigclock">error</div>
+        <iframe id="bigclock" src="clocks/standard/index.html">error</iframe>
         <div class="overlay" id="overlay"></div>
         <div id="centerMain" class="grappl">
             <div class="loadbox">
@@ -104,7 +104,7 @@
                 <div class="section">
                     <div class="sub_title">clock format</div>
                         <div class="switch">
-                            24-hour time<input type="checkbox">
+                            24-hour time<input id="tfhr" type="checkbox">
                         </div>
                 </div>
                 <div class="section">
@@ -155,6 +155,7 @@
     <grapplrEngine>
         <script language="javascript" type="text/javascript" src="js/grapplrEngine/config.js"></script>
         <script language="javascript" type="text/javascript" src="js/grapplrEngine/grapplrEngineMain.js"></script>
+        <script language="javascript" type="text/javascript" src="js/grapplrEngine/clock.js"></script>
         <script language="javascript" type="text/javascript" src="js/grapplrEngine/gcl.js"></script>
         <script language="javascript" type="text/javascript" src="js/grapplrEngine/functions/nav.js"></script>
         <script language="javascript" type="text/javascript" src="js/grapplrEngine/functions/search.js"></script>

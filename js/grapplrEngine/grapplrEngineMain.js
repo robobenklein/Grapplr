@@ -18,7 +18,28 @@ function showToolBar(){
     document.getElementById("center_tools").style.opacity = "1";
     document.getElementById("center_reminder").style.opacity = "1";
 }
-
+function hideUI(){
+    document.getElementById("centerMain").style.opacity = "0";
+    document.getElementById("centerMain").style.top = "50%";
+    document.body.style.cursor = "default";
+    hideToolBar();
+}
+function showUI(){
+    var opacity = localStorage.getItem("opacityVal");
+    document.getElementById("dots").style.opacity = opacity;
+    document.getElementById("bigclock").style.opacity = "0";
+    document.getElementById("bigclock").style.top = "-50";
+    document.getElementById("centerMain").style.opacity = "1";
+    document.getElementById("centerMain").style.top = "45%";
+    document.body.style.cursor = "default";
+    showToolBar();
+}
+function showClock(){
+    hideUI();
+    document.getElementById("bigclock").style.opacity = "1";
+    document.getElementById("bigclock").style.top = "0";
+    
+}
 //Custom Command Step 1:
 //Define Function Toggle
 var tod = "AM";
@@ -249,8 +270,6 @@ function getKeywords() {
     var four_keywords = queryWords[0] + " " + queryWords[1] + " " + queryWords[2] + " " + queryWords[3];
 }
 document.getElementById("overlay").onmousemove = function(e) {
-    document.getElementById("bigclock").style.opacity = "0";
-    document.getElementById("bigclock").style.top = "45%";
     document.getElementById("centerMain").style.opacity = "1";
     document.getElementById("centerMain").style.top = "45%";
     var opacity = localStorage.getItem('opacityVal');
@@ -321,112 +340,10 @@ $(document).ready(function() {
     }
     document.getElementById("closeWindow").onclick = function(){
         document.getElementById("window").style.visibility = "hidden";
-    }
-    var idleTime = 0;
-
-    setInterval(timerIncrement, 5000);
-    document.onmousemove = function() {
-        document.getElementById("bigclock").style.opacity = "0";
-        document.getElementById("bigclock").style.top = "45%";
-        document.getElementById("centerMain").style.opacity = "1";
-        document.getElementById("centerMain").style.top = "45%";
-        var opacity = localStorage.getItem('opacityVal');
-        document.getElementById("dots").style.opacity = opacity;
-        document.body.style.cursor = "default";
-        idleTime = 0;
-    }
-    document.onkeydown = function() {
-        document.getElementById("bigclock").style.opacity = "0";
-        document.getElementById("bigclock").style.top = "45%";
-        document.getElementById("centerMain").style.opacity = "1";
-        document.getElementById("centerMain").style.top = "45%";
-        var opacity = localStorage.getItem('opacityVal');
-        document.getElementById("dots").style.opacity = opacity;
-        document.body.style.cursor = "default";
-        idleTime = 0;
-    }
-
-    function timerIncrement() {
-        idleTime = idleTime + 1;
-        console.log(idleTime);
-        if (idleTime > 5) {
-            document.getElementById("overlay").style.visibility = "visible";
-            document.getElementById("bigclock").style.opacity = 1;
-            document.getElementById("bigclock").style.top = "50%";
-            document.getElementById("centerMain").style.opacity = 0;
-            document.getElementById("centerMain").style.top = "50%";
-            document.getElementById("bigclock").style.color = "#fff";
-            document.body.style.cursor = "none";
-        } 
-        if (idleTime > 11) {
-            document.getElementById("bigclock").style.color = "#aaa";
-            document.getElementById("dots").style.opacity = ".97";
-            hideToolBar();
-        }
-    }
-
+    }   
     startTime();
-//    document.getElementById("greeting").innerHTML = "loading...";
-    function startTime() {
-        var today = new Date();
-        var h = today.getHours();
-        var m = today.getMinutes();
-        var date = today.toDateString();
-        h = checkHours(h);
-        m = checkMinutes(m);
-        document.getElementById('clock').innerHTML = date + " <b>" + h + ":" + m + " " + tod + "</b>";
-        document.getElementById('bigclock').innerHTML = h + ":" + m;
-        h = setGreeting(h);
-        setTimeout(function() {
-            startTime();
-        }, 20000);
-    }
-
-    function checkMinutes(i) {
-        if (i < 10) {
-            i = "0" + i
-        };
-        return i;
-    }
-
-    function checkHours(i) {
-        if (i >= 12) {
-            if (i == 12) {
-                i = 12;
-                tod = "PM";
-            } else {
-                i = i - 12;
-                tod = "PM";
-            }
-        }
-        if(i == 0){
-            i = 12;
-            tod = "AM";
-        }
-        return i;
-    }
-
-    function setGreeting(i) {
-        var name = localStorage.getItem('name');
-        if (tod == "PM") {
-            if (i == 12) {
-                document.getElementById("greeting").innerHTML = "Grab a bite!";
-            } else if (i > 4) {
-                document.getElementById("greeting").innerHTML = "Good evening, " + name + ".";
-            } else {
-                document.getElementById("greeting").innerHTML = "Good afternoon, " + name + ".";
-            }
-        } else {
-            document.getElementById("greeting").innerHTML = "Good morning, " + name + ".";
-        }
-        return i;
-    }
-    $("#query").focus();
-    var e = $.Event("keydown", {
-        keyCode: 9
-    }); //"keydown" if that's what you're doing
-    $("html").trigger(e);
 });
+//    document.getElementById("greeting").innerHTML = "loading...";
 //window.oncontextmenu = function(){ 
 //    return false; 
 //}
