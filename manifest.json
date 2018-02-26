@@ -1,10 +1,10 @@
 {
     "manifest_version": 2
 
-    ,"name": "Grapplr"
+    ,"name": "Grapplr Original"
     ,"short_name": "Grapplr"
     ,"description": "The way a browser was meant to be used"
-    ,"version": "0.1.5"
+    ,"version": "0.0.0"
 
     ,"browser_action": {
         "default_icon": "icon.png"
