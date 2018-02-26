@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="../css/search.css">
+
+        <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
+        <script src="../js/jquery-1.11.3.min.js"></script>
+		<script src="../js/vue.js">
+        <meta charset="UTF-8">
+		<title>New Tab</title>
+        <style id="style">
+		.html {
+			background-color: #000;
+		}
+        </style>
+	</head>
+	<body>
+        <div id="bg" class="bg"></div>
+        <div id="dots" class="dots"></div>
+        <iframe id="bigclock" src="../clocks/standard/index.html">error</iframe>
+        <div class="overlay" id="overlay"></div>
+        <div id="centerMain" class="grappl">
+            <div class="loadbox">
+            </div>
+            <input class="grapplr" type="text" spellcheck="false" name="query" id="query" placeholder="click here to start typing" autofocus autocomplete="off" x-webkit-speech/>
+            <div class="controls" id="controls">
+                <div id="load"></div>
+                <button class="ui_icon" id="sb" onclick="search()"><img src="../images/icons/sd.png" /></button>
+                <button class="ui_icon" id="dl" onclick="download()"><img src="../images/icons/dl.png" /></button>
+                <button class="ui_icon" id="dl" onclick="download()"><img src="../images/ul.png" /></button>
+                <button class="ui_icon" id="play" onclick="play()"><img src="../images/play.png" /></button>
+                <button class="ui_icon" id="tweet" onclick="tweet()"><img src="../images/tweet.png" /></button>
+                <button class="ui_icon" id="fbpost" onclick="post()"><img src="../images/fbpost.png" /></button>
+                <button class="ui_icon" id="df" onclick="define()"><img src="../images/define.png" /></button>
+                <button class="ui_icon" id="q" onclick="ask()"><img src="../images/q.png" /></button>
+                <button class="ui_icon" id="nav" onclick="nav()"><img src="../images/nav.png" /></button>
+                <button class="ui_icon" id="trans" onclick="translate()"><img src="../images/trans.png" /></button>
+                <button class="ui_icon" id="calc" onclick="calculate()"><img src="../images/calc.png" /></button>
+                <button class="ui_icon" id="plot" onclick="plot()"><img src="../images/plot.png" /></button>
+                <button class="ui_icon" id="remind" onclick="remind()"><img src="../images/todo.png" /></button>
+                <button class="ui_icon" id="alarm" onclick="setAlarm()"><img src="../images/alarm.png" /></button>
+                <button class="ui_icon" id="timer" onclick="setTimer()"><img src="../images/timer.png" /></button>
+                <button class="ui_icon" id="gcl"><img src="../images/gcl.png" /></button>
+            </div>
+        </div>
+        <div id="topBar" class="toolbar">
+            <div class="left_tools">
+                <a id="apps"><button><img id="tool" class="ui_icon" src="../images/icons/apps.png"></button></a>
+                <a id="apps"><button><img id="bookmarks_toggle" class="ui_icon" src="../images/icons/bookmarks.png"></button></a>
+            </div>
+            <div class="right_tools">
+                <button id="settings_toggle"><img class="ui_icon" src="../images/context.png"></button>
+              <div id="clock"></div>
+            </div>
+        </div>
+        <div id="center_tools" class="center_tools">
+                <div id="greeting"></div>
+        </div>
+        <div id="center_reminder">
+        </div>
+        <div class="menu" id="AllReminders">
+            <div id="list">
+            </div>
+            <div id="viewall">see all</div>
+        </div>
+        <div class="menuR" id="settings">
+            <div class="menu_title"><img src="../images/grapplr_logo.png"></div>
+            <button class="optionR" value="grapplr_settings">SETTINGS</button>
+            <button class="optionR" value="">GRAPPLED SITES</button>
+            <button class="optionR" value="chrome_settings">CHROME</button>
+            <button class="optionR" style="margin-bottom: 1px;">HELP</button>
+        </div>
+        <div class="menuR" id="grapplr_settings">
+                <div class="menu_title"><img class="back" src="../images/menuback.png">SETTINGS</div>
+                <button class="optionR" value="customize">CUSTOMIZATION</button>
+                <button class="optionR" value="time_and_clock">TIME AND CLOCK</button>
+                <button class="option">DEFAULTS</button>
+                <button class="option">DEFAULTS</button>
+        </div>
+        <div class="menuR" id="customize">
+            <div class="menu_title"><img class="back" src="../images/menuback.png">CUSTOMIZE</div>
+            <div class="scroll">
+                <div class="section">
+                    <div class="sub_title">wallpaper</div>
+                    <input accept="image/*" type="file" id="changebg" class="chbg">
+                </div>
+                <div class="section">
+                    <div class="sub_title">blur</div>
+                    <input id="blur" type="range" min="0" max="50">
+                </div>
+                <div class="section">
+                    <div class="sub_title">overlay</div>
+                    <div id="nodots" class="select_bubble"></div>
+                    <div id="setdots" class="select_bubble"></div>
+                    <div id="setstripe" class="select_bubble"></div>
+                </div>
+                <div class="section">
+                    <div class="sub_title">darkness</div>
+                    <input id="opacity" type="range" min="40" max="70">
+                </div>
+                <div class="section" style="margin-bottom: 70px;">
+                </div>
+            </div>
+        </div>
+        <div class="menuR" id="time_and_clock">
+            <div class="menu_title"><img class="back" src="../images/menuback.png">TIME AND CLOCK</div>
+            <div class="scroll">
+                <div class="section">
+                    <div class="sub_title">clock format</div>
+                        <div class="switch">
+                            24-hour time<input id="tfhr" type="checkbox">
+                        </div>
+                </div>
+                <div class="section">
+                    <div class="sub_title">sleep mode clock style</div>
+                    <input type="radio" class="time" name="time" value="" style="background-image: url(../clocks/standard/thumb.png);" checked>
+                    <input type="radio" class="time" name="time" value="" style="background-image: url(../clocks/analog/thumb.png);">
+                    <input type="radio" class="time" name="time" value="" style="background-image: url(../clocks/dots/thumb.png);">
+                    <input type="radio" class="time" name="time" value="" style="background-image: url(../clocks/light/thumb.png);">
+                    <div class="switch">
+                    show the weather<input type="checkbox" checked>
+                    </div>
+                    <div class="switch">
+                    show the next alarm<input type="checkbox" checked>
+                    </div>
+                    <div class="switch">
+                    show a reminder<input type="checkbox">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menuR" id="chrome_settings">
+            <div class="menu_title"><img class="back" src="images/menuback.png"><img src="../images/chrome.png"></div>
+            <div id="menu_chrome_localurl_settings" class="option">SETTINGS</div>
+            <div id="menu_chrome_localurl_history" class="option">HISTORY</div>
+            <div id="menu_chrome_localurl_extensions" class="option">EXTENSIONS</div>
+        </div>
+        <div class="menuR" id="bookmarks">
+            <div class="menu_title">BOOKMARKS</div>
+        </div>
+        <div class="toolbar" id="bottomtoolbar">
+            <div class="left_tools">
+            </div>
+            <div class="center_tools">
+            </div>
+            <div class="right_tools">
+            </div>
+        </div>
+        <div id="appMenu">
+        </div>
+        <div id="window">
+            <div class="window">
+                <div id="windowTitle">Well that&apos;s sad...</div>
+                <div id="windowDescription">Grapplr ran into an error. If this error is consistent, please report it on the <a href="http://reddit.com/r/grapplr"> Grapplr subreddit</a>.</div>
+                <div id="reload" class="windowButton">Reload</div><div id="closeWindow" class="windowButton">Close</div>
+            </div>
+        </div>
+	</body>
+    <grapplrEngine>
+        <script language="javascript" type="text/javascript" src="js/grapplrEngine/config.js"></script>
+        <script language="javascript" type="text/javascript" src="js/grapplrEngine/grapplrEngineMain.js"></script>
+        <script language="javascript" type="text/javascript" src="js/grapplrEngine/clock.js"></script>
+        <script language="javascript" type="text/javascript" src="js/grapplrEngine/gcl.js"></script>
+        <script language="javascript" type="text/javascript" src="js/grapplrEngine/functions/nav.js"></script>
+        <script language="javascript" type="text/javascript" src="js/grapplrEngine/functions/search.js"></script>
+        <script language="javascript" type="text/javascript" src="js/grapplrEngine/functions/download.js"></script>
+        <script language="javascript" type="text/javascript" src="js/grapplrEngine/functions/ask.js"></script>
+        <script language="javascript" type="text/javascript" src="js/grapplrEngine/functions/tweet.js"></script>
+        <script language="javascript" type="text/javascript" src="js/grapplrEngine/functions/define.js"></script>
+        <script language="javascript" type="text/javascript" src="js/grapplrEngine/functions/calculate.js"></script>
+        <script language="javascript" type="text/javascript" src="js/grapplrEngine/functions/plot.js"></script>
+        <script language="javascript" type="text/javascript" src="js/grapplrEngine/functions/remind.js"></script>
+        <!--Link custom scripts here-->
+        <script language="javascript" type="text/javascript" src="js/grapplrEngine/menus.js"></script>
+        <script language="javascript" type="text/javascript" src="js/grapplrEngine/customize.js"></script>
+    </grapplrEngine>
+</html>

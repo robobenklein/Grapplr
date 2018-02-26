@@ -1,0 +1,19 @@
+{
+  "name": "grapplr",
+  "version": "0.0.1",
+  "description": "Your personal frontend to the web.",
+  "main": "popup.js",
+  "dependencies": {
+    "vue": "^2.5.13"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robobenklein/Grapplr.git"
+  },
+  "author": "Ben Klein, Preston Gull",
+  "bugs": {
+    "url": "https://github.com/robobenklein/Grapplr/issues"
+  },
+  "homepage": "https://github.com/robobenklein/Grapplr#readme"
+}
