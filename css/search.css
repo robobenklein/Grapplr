@@ -24,9 +24,9 @@ html {
     cursor: default;
 }
 body{
-    animation: fade 2s ease;
+    animation: fade 1s ease;
     background-position: center;
-    background-color: #fff;
+    background-color: #000;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -172,7 +172,7 @@ b {
 }
 .reminder:hover {
     opacity: 0.5;
-} 
+}
 #reminder:before {
     margin: 0;
     font-size: 10pt;
@@ -189,7 +189,7 @@ b {
 }
 #reminder:hover {
     opacity: 0.5;
-}   
+}
 .toolbar{
     padding: 20px;
     overflow: hidden;
@@ -199,7 +199,7 @@ b {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    width: 100%;    
+    width: 100%;
     position: absolute;
     bottom: 0px;
     padding: 20px;
@@ -259,7 +259,7 @@ button:focus {
 select {
     min-width: 90px;
     border: 0px;
-    border-bottom: 2px solid #000; 
+    border-bottom: 2px solid #000;
     color: #000;
     background-color: #eee;
     font-family: 'gull', sans-serif;

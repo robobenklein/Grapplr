@@ -27,3 +27,13 @@ $('.back').click(function (){
     var parent = $(this).parents().eq(1).prop("id");
     document.getElementById(parent).style.right = "-310";
 });
+
+$('#menu_chrome_localurl_settings').click(function () {
+    load_chrome_url('settings');
+});
+$('#menu_chrome_localurl_history').click(function () {
+    load_chrome_url('history');
+});
+$('#menu_chrome_localurl_extensions').click(function () {
+    load_chrome_url('extensions');
+});

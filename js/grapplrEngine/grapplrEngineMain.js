@@ -38,7 +38,7 @@ function showClock(){
     hideUI();
     document.getElementById("bigclock").style.opacity = "1";
     document.getElementById("bigclock").style.top = "0";
-    
+
 }
 //Custom Command Step 1:
 //Define Function Toggle
@@ -131,7 +131,7 @@ document.getElementById("query").onkeyup = function(event) {
             } else if (AlarmToggle == 1) {
                 clearall();
                 setAlarm();
-            } 
+            }
             else if (TimerToggle == 1) {
                 clearall();
                 setTimer();
@@ -153,7 +153,7 @@ document.getElementById("query").onkeyup = function(event) {
         //      Check query box for index of command
         //      Then set fuction toggle to 1
         //      Enter new lines after last else if
-        //      Example: 
+        //      Example:
         //
         //      ...
         //      } else if (query.indexOf("command") != -1 || query.indexOf("command kommand") != -1) {
@@ -323,11 +323,14 @@ function clearall() {
 }
 document.getElementById('apps').onclick = function() {
     document.getElementById("appMenu").style.left = "0";
-    setInterval(showApps, 700);
+    setInterval(showApps, 400);
 }
-function showApps(){
+function showApps() {
+    load_chrome_url("apps");
+}
+function load_chrome_url(chromepath){
     chrome.tabs.update({
-        url: 'chrome://apps/'
+        url: 'chrome://'+chromepath+'/'
     });
 }
 $(document).ready(function() {
@@ -340,10 +343,10 @@ $(document).ready(function() {
     }
     document.getElementById("closeWindow").onclick = function(){
         document.getElementById("window").style.visibility = "hidden";
-    }   
+    }
     startTime();
 });
 //    document.getElementById("greeting").innerHTML = "loading...";
-//window.oncontextmenu = function(){ 
-//    return false; 
+//window.oncontextmenu = function(){
+//    return false;
 //}

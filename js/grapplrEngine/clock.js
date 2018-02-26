@@ -67,7 +67,8 @@ $("#tfhr").change(function(){
 });
 $(document).ready(function() {
     var idleTime = 0;
-    setInterval(timerIncrement, 5000);
+    // time between idle checks
+    setInterval(timerIncrement, 6500);
     document.onmousemove = function() {
         showUI();
         idleTime = 0;
@@ -79,12 +80,14 @@ $(document).ready(function() {
 
     function timerIncrement() {
         idleTime = idleTime + 1;
-        console.log(idleTime);
-        if (idleTime > 5) {
+        // console.log(idleTime);
+        if (idleTime > 4) {
+            console.log("Idle timer reached first stage.");
             showClock();
-        } 
-        if (idleTime > 11) {
-            document.getElementById("dots").style.opacity = ".97";
+        }
+        if (idleTime > 8) {
+            console.log("Idle timer reached second stage.")
+            document.getElementById("dots").style.opacity = ".87";
         }
     }
     });
