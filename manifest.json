@@ -1,20 +1,20 @@
 {
     "manifest_version": 2
 
-    ,"name": "Grapplr Original"
+    ,"name": "Grapplr V"
     ,"short_name": "Grapplr"
-    ,"description": "The way a browser was meant to be used"
-    ,"version": "0.0.0"
+    ,"description": "Your personal frontend to the web."
+    ,"version": "0.0.1"
 
     ,"browser_action": {
         "default_icon": "icon.png"
-        ,"default_popup": "alias.html"
+        ,"default_popup": "views/pop_action.html"
         ,"default_title": "Click to grapple this site into your favorites!"
         ,"key":"grapplrTab"
     }
 
     ,"chrome_url_overrides" : {
-        "newtab": "grapplr.html"
+        "newtab": "views/grapplr.html"
     }
     ,"icons": {
         "16": "icon16.png"
@@ -31,6 +31,4 @@
         "unlimitedStorage",
         "downloads"
     ]
-    ,"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
-    /* ,"content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'" */
 }

@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "grapplr",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "Your personal frontend to the web.",
+    "description": "The description of the application"
+  }
+}
