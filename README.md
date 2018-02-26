@@ -1,4 +1,11 @@
+# Grapplr (Legacy)
+
+This is the original (mostly unmodified) version of Grapplr as Preston Gull left it before he left on his mission. Even for code from 2015, it's still impressive to see Preston's work last so well through the years.
+
+If you're looking to actually use Grapplr, you should probably use the Vue.js rewrite by Ben Klein.
+
 # Grapplr
+
 Grapplr is an intelligent, simple, and beautiful replacement for your browser's home page. 
 <br />
 Grapplr is a web-portal project currently under development by Preston Gull
