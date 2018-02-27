@@ -1,6 +1,6 @@
 <template>
   <div class="menuR" id="settings">
-    <div class="menu_title"><img src="/static/img/grapplr_logo_black_text.png"></div>
+    <div class="menu_title"><img src="/img/grapplr_logo_black_text.png"></div>
     <router-link to="/settings/grapplr">
       <button class="optionR" value="grapplr_settings">SETTINGS</button>
     </router-link>

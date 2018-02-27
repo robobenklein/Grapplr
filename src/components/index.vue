@@ -3,7 +3,7 @@
   <div id="bg" class="bg"></div>
   <div id="bg-overlay" class="bg-overlay"></div>
   <div id="grapplr-main">
-    <img src="/static/img/grapplr_logo_white_text_beta.png" />
+    <img src="/img/grapplr_logo_white_text_beta.png" />
     <h2>Essential Links</h2>
     <ul>
       <li>

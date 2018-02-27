@@ -2,9 +2,9 @@
   <div class="menuR" id="chrome_settings">
     <div class="menu_title">
       <router-link to="/settings">
-        <img class="back" src="/static/img/icon/menuback.png">
+        <img class="back" src="/img/icon/menuback.png">
       </router-link>
-      <img src="/static/img/icon/chrome16.png">
+      <img src="/img/icon/chrome16.png">
     </div>
     <button class="optionR" value="">
       <div id="menu_chrome_localurl_settings" class="option">SETTINGS</div>

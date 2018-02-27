@@ -2,7 +2,7 @@
   <div class="menuR" id="grapplr_settings" style="right: -10px;">
     <div class="menu_title">
       <router-link to="/settings">
-        <img class="back" src="/static/img/icon/menuback.png">
+        <img class="back" src="/img/icon/menuback.png">
       </router-link>
       SETTINGS
     </div>
