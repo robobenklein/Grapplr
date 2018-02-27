@@ -39,7 +39,7 @@ export default {
       const fromDepth = from.path.split('/').length
       this.transitionSlideType = toDepth < fromDepth ? 'slide-left' : 'slide-right'
       // this.transitionSlideOrder = toDepth < fromDepth ? 'in-out' : 'in'
-      console.log("Transition " + this.transitionSlideType)
+      console.log("Settings Transition " + this.transitionSlideType)
     }
   }
 }
@@ -56,21 +56,12 @@ console.log("yes");
   z-index: -1;
   overflow: hidden;
 }
-/* .slide-right-enter-active,
-.slide-right-leave-active,
-.slide-left-enter-active,
-.slide-left-leave-active {
-  transition: all 2s ease;
-} */
-/* .menuR.slide-right-leave-active, */
 .menuR.slide-left-leave-to,
-/* .menuR.slide-right-enter, */
-/* .menuR.slide-right-leave-to */
 .menuR.slide-right-enter
 {
-  /* transform: translateX(300px); */
+  transform: translateX(300px);
   transform: translateZ(100);
-  right: -310px;
+  /* right: -310px; */
 }
 .menuR {
     float: right;

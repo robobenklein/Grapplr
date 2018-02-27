@@ -6,6 +6,7 @@ import g_blank from '@/components/blank'
 import g_settings from '@/components/settings'
 import g_settings_index from '@/components/settings/settings_index'
 import g_settings_chromelinks from '@/components/settings/settings_chromelinks'
+import g_settings_grapplr from '@/components/settings/settings_grapplr'
 
 Vue.use(Router)
 
@@ -17,7 +18,7 @@ export default new Router({
       children: [
         {
           path: '',
-          name: 'Grapplr',
+          name: 'grapplr-index',
           component: g_blank
         },
         {
@@ -26,12 +27,17 @@ export default new Router({
           children: [
             {
               path: '',
-              name: 'Grapplr Settings',
+              name: 'settings-index',
               component: g_settings_index
             },
             {
+              path: 'grapplr',
+              name: 'settings-grapplr',
+              component: g_settings_grapplr
+            },
+            {
               path: 'chrome',
-              name: 'Grapplr: Chrome Settings',
+              name: 'settings-chromelinks',
               component: g_settings_chromelinks
             }
           ]

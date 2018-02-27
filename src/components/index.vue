@@ -11,7 +11,7 @@
       </li>
     </ul>
   </div>
-  <transition>
+  <transition :name="transitionOverlayType" >
     <router-view v-on:grapplr_control="overlay_data" />
   </transition>
 </div>
@@ -23,7 +23,7 @@ export default {
   data () {
     return {
       msg: 'Hello user!',
-      // overlay: false
+      transitionOverlayType: 'slide-right'
     }
   },
   methods: {
@@ -32,6 +32,19 @@ export default {
       if (data === 'overlay-exit') {
         this.$router.push('/');
       }
+    }
+  },
+  watch: {
+    '$route' (to, from) {
+      // choose type of transistion for the app-overlay
+      if (from.path.startsWith('/settings') || to.path.startsWith('/settings')) {
+        // settings slides in from right
+        this.transitionOverlayType = 'slideOutSettings'
+      } else {
+        this.transitionOverlayType = 'none';
+      }
+      // this.transitionSlideOrder = toDepth < fromDepth ? 'in-out' : 'in'
+      console.log("Overlay Transition " + this.transitionOverlayType)
     }
   }
 }
@@ -52,6 +65,11 @@ export default {
 }
 #app-overlay {
   pointer-events: auto;
+  transition: 0.5s all ease;
+}
+#app-overlay.slideOutSettings-enter,
+#app-overlay.slideOutSettings-leave-active {
+  transform: translateX(300px);
 }
 #bg {
   background-color: #444;
