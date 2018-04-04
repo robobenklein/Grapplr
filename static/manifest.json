@@ -6,20 +6,11 @@
     ,"description": "Your new frontend to the web."
     ,"version": "0.0.0"
 
-    ,"browser_action": {
-        "default_icon": "icon.png"
-        ,"default_popup": "alias.html"
-        ,"default_title": "Click to grapple this site into your favorites!"
-        ,"key":"grapplrTab"
-    }
-
     ,"chrome_url_overrides" : {
-        "newtab": "grapplr.html"
+        "newtab": "index.html"
     }
     ,"icons": {
-        "16": "icon16.png"
-        ,"48": "icon48.png"
-        ,"128": "icon128.png"
+        "16": "img/icon.png"
     }
     ,"permissions": [
         "activeTab",
@@ -32,5 +23,4 @@
         "downloads"
     ]
     ,"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
-    /* ,"content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'" */
 }

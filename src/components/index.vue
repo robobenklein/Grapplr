@@ -3,7 +3,6 @@
   <div id="bg" class="bg"></div>
   <div id="bg-overlay" class="bg-overlay"></div>
   <div id="grapplr-main">
-    <img src="/img/grapplr_logo_white_text_beta.png" />
     <h2>Essential Links</h2>
     <ul>
       <li>
@@ -11,6 +10,7 @@
       </li>
     </ul>
   </div>
+  <img id="bottom-logo" src="/img/grapplr_logo_white_text_beta.png" />
   <transition :name="transitionOverlayType" >
     <router-view v-on:grapplr_control="overlay_data" />
   </transition>
@@ -52,13 +52,18 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#bg, #grapplr, #app-overlay, #bg-overlay {
+#bg, #grapplr, #grapplr-main, #app-overlay, #bg-overlay {
   position: absolute;
   overflow: hidden;
   height: 100%;
   width: 100%;
   top: 0;
   left: 0;
+}
+#bottom-logo {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
 }
 #app-overlay.disable.passthrough {
   pointer-events: none;
